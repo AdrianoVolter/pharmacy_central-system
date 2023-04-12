@@ -5,3 +5,28 @@
   
 
 }
+nav {
+  background-color: #000;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  
+}
+.card {
+  background-color: #fff;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  
+  flex-direction: column;
+  position: relative;
+  z-index: 0;
+}
