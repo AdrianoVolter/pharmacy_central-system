@@ -93,6 +93,7 @@ function CadastroNova ( ){
         setBairro('');
         setCidade('');
         setEstado('');
+        console.log('Dados limpos com sucesso!');
     }
 
     
