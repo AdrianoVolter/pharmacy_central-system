@@ -1,12 +1,14 @@
-
-
+//import Login from "./components/Login"
+import CadastroNova from "./components/CadastroNova"
 function App() {
  
 
   return (
     <div className="App">
+      
      <h1>Pharmacy Central System</h1>
-     <p></p>
+      {/* <Login/> */}
+      <CadastroNova/>
     </div>
      
   )
