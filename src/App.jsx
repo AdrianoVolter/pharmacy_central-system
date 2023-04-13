@@ -1,4 +1,5 @@
-import Login from "./components/Login"
+//import Login from "./components/Login"
+import CadastroNova from "./components/CadastroNova"
 function App() {
  
 
@@ -6,7 +7,8 @@ function App() {
     <div className="App">
       
      <h1>Pharmacy Central System</h1>
-      <Login/>
+      {/* <Login/> */}
+      <CadastroNova/>
     </div>
      
   )

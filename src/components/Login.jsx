@@ -15,16 +15,16 @@ const handleSenha = (e) => {
     setSenha(e.target.value)
     };
       
-const handleEnviar = (event) => {
-
-    event.preventDefault()
+const handleEnviar = (e) => {
+    if (email === '' || senha === '') {
+        alert('Preencha todos os campos!')
+    }else{
+    e.preventDefault()
     localStorage.setItem('email', email)
     localStorage.setItem('senha', senha)
-    window.location.href = '/home'
-    
-  
+    alert('Dados salvos com sucesso!')
      } 
-
+    }
 
     return(
         <div className="container">
@@ -55,6 +55,7 @@ const handleEnviar = (event) => {
                                         className="form-control"  
                                         placeholder="Digite a senha" 
                                         onChange={handleSenha}
+                                        minLength={8}
                                         required
                                         />
                                 </div> <br />
