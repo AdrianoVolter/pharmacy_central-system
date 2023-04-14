@@ -17,13 +17,11 @@ const handleSenha = (e) => {
     };
       
 const handleEnviar = (e) => {
-    if (email === '' || senha === '') {
-        alert('Preencha todos os campos!')
+    if (email === '' || senha.length < 8) {
+        alert('Preencha todos os campos CORRETAMENTE!')
+        return;
     }else{
     e.preventDefault()
-    localStorage.setItem('email', email)
-    localStorage.setItem('senha', senha)
-
     alert('Dados salvos com sucesso!')
     history.push('/farmacias')
      } 
