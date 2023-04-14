@@ -33,8 +33,8 @@ const handleEnviar = (e) => {
         <div className=" col-12 container p-3">
             <div className="row col-6">
                 <div className=" col-12 ">
-                    <div className="card">
-                        <div className="card-header">
+                    <div className="">
+                        <div className="">
                             <h3>Login</h3>
                         </div><br />
                         <div className="card-body">

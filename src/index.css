@@ -2,6 +2,7 @@
 
 *{
   box-sizing: border-box;
+  
 }
 body{
   margin: 0;
@@ -10,7 +11,7 @@ body{
   font-size: 1rem;
   font-weight: 400;
   color: #000;
-  background-color: #fff;
+  background-color: #f9f9f9;
   
 }
 
@@ -41,4 +42,17 @@ body .container{
 .login:hover{
   color: #000;
   text-decoration: underline;
+}
+
+form input{
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000;
+  background-color: #fff;
 }

@@ -56,6 +56,7 @@ function ListaDeFarmacias(props) {
     ]
     return (
         <div className="col-10 container-fluid d-grid">
+
             <h1>Lista de Farmácias</h1>
             <div className='table-responsive'>
             <table className="table table-striped  align-middle">
@@ -102,7 +103,8 @@ function ListaDeFarmacias(props) {
                     })}
                 </tbody>
             </table>
-            </div>       
+            </div>
+                   
         </div>
     )
 }
