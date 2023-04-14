@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-
-
 
 function CadastroNova ( ){
 
@@ -18,8 +15,6 @@ function CadastroNova ( ){
     const [bairro, setBairro] = useState('');
     const [cidade, setCidade] = useState('');
     const [estado, setEstado] = useState('');
-
-    const history = useHistory();
 
     const handleNome =(e) => {
         setNome(e.target.value)
@@ -82,7 +77,7 @@ function CadastroNova ( ){
         localStorage.setItem('bairro', bairro);
         localStorage.setItem('cidade', cidade);
         localStorage.setItem('estado', estado); 
-        history.push('/farmacias');
+        
         alert('Dados salvos com sucesso!')
 
         }

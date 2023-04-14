@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom';
 
 function Login(){
 
    
 const [email, setEmail] = useState('')
-
 const [senha, setSenha] = useState('')
+const history = useHistory();
       
 const handleEmail = (e) => {
     setEmail(e.target.value)
@@ -22,7 +23,9 @@ const handleEnviar = (e) => {
     e.preventDefault()
     localStorage.setItem('email', email)
     localStorage.setItem('senha', senha)
+
     alert('Dados salvos com sucesso!')
+    history.push('/farmacias')
      } 
     }
 
