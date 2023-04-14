@@ -1,5 +1,5 @@
-import Login from "./components/Login"
-//import CadastroNova from "./components/CadastroNova"
+//import Login from "./components/Login"
+import CadastroNova from "./components/CadastroNova"
 //import CadastroMedicamento from "./components/Cadastromedicamento"
 import Header from "./components/Header"
 function App() {
@@ -12,8 +12,8 @@ function App() {
 
     <div className="col-12 container-fluid">
       <Header/>
-      <Login/>
-      {/* <CadastroNova/> */}
+      {/* <Login/> */}
+      <CadastroNova/>
       {/* <CadastroMedicamento/> */}
     </div>
      
