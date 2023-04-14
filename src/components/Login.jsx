@@ -1,12 +1,14 @@
+
+
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 
 function Login(){
 
    
 const [email, setEmail] = useState('')
 const [senha, setSenha] = useState('')
-const history = useHistory();
+//const history = useHistory();
       
 const handleEmail = (e) => {
     setEmail(e.target.value)
@@ -23,14 +25,14 @@ const handleEnviar = (e) => {
     }else{
     e.preventDefault()
     alert('Dados salvos com sucesso!')
-    history.push('/farmacias')
+    //history.push('/farmacias')
      } 
     }
 
     return(
-        <div className="container">
-            <div className="row">
-                <div className="col-md-4 offset-md-4 ">
+        <div className=" col-12 container p-3">
+            <div className="row col-6">
+                <div className=" col-12 ">
                     <div className="card">
                         <div className="card-header">
                             <h3>Login</h3>
@@ -71,6 +73,7 @@ const handleEnviar = (e) => {
                     </div>
                 </div>
             </div>
+            
         </div>
     )
 }
