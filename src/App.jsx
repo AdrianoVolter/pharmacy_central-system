@@ -1,6 +1,7 @@
 //import Login from "./components/Login"
-//import CadastroNova from "./components/CadastroNova"
-import CadastroMedicamento from "./components/Cadastromedicamento"
+import CadastroNova from "./components/CadastroNova"
+//import CadastroMedicamento from "./components/Cadastromedicamento"
+import Header from "./components/Header"
 function App() {
 
     // const novaFarmacia = { 
@@ -9,12 +10,11 @@ function App() {
 
   return (
 
-    <div className="App">
-      
-     <h1>Pharmacy Central System</h1>
+    <div className="col-12 container-fluid">
+      <Header/>
       {/* <Login/> */}
-      {/* <CadastroNova/> */}
-      <CadastroMedicamento/>
+      <CadastroNova/>
+      {/* <CadastroMedicamento/> */}
     </div>
      
   )

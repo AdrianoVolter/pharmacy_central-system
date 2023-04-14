@@ -1,11 +1,14 @@
+
+
 import React, { useState } from 'react'
+//import { useHistory } from 'react-router-dom';
 
 function Login(){
 
    
 const [email, setEmail] = useState('')
-
 const [senha, setSenha] = useState('')
+//const history = useHistory();
       
 const handleEmail = (e) => {
     setEmail(e.target.value)
@@ -16,20 +19,20 @@ const handleSenha = (e) => {
     };
       
 const handleEnviar = (e) => {
-    if (email === '' || senha === '') {
-        alert('Preencha todos os campos!')
+    if (email === '' || senha.length < 8) {
+        alert('Preencha todos os campos CORRETAMENTE!')
+        return;
     }else{
     e.preventDefault()
-    localStorage.setItem('email', email)
-    localStorage.setItem('senha', senha)
     alert('Dados salvos com sucesso!')
+    //history.push('/farmacias')
      } 
     }
 
     return(
-        <div className="container">
-            <div className="row">
-                <div className="col-md-4 offset-md-4 ">
+        <div className=" col-12 container p-3">
+            <div className="row col-6">
+                <div className=" col-12 ">
                     <div className="card">
                         <div className="card-header">
                             <h3>Login</h3>
@@ -70,6 +73,7 @@ const handleEnviar = (e) => {
                     </div>
                 </div>
             </div>
+            
         </div>
     )
 }
