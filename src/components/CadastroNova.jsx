@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 
 
@@ -17,6 +18,8 @@ function CadastroNova ( ){
     const [bairro, setBairro] = useState('');
     const [cidade, setCidade] = useState('');
     const [estado, setEstado] = useState('');
+
+    const history = useHistory();
 
     const handleNome =(e) => {
         setNome(e.target.value)
@@ -62,6 +65,10 @@ function CadastroNova ( ){
 
     const handleCadastrar = (e) => {
         e.preventDefault();
+        if (nome === '' || cnpj === '' || nomeFantasia === '' || email === '' || telefone === '' || celular === '' || cep === '' || logradouro === '' || numero === '' || complemento === '' || bairro === '' || cidade === '' || estado === '') {
+            alert('Preencha todos os campos!')
+        ;
+    } else {
         localStorage.setItem('nome', nome);
         localStorage.setItem('cnpj', cnpj);
         localStorage.setItem('nomeFantasia', nomeFantasia);
@@ -75,9 +82,12 @@ function CadastroNova ( ){
         localStorage.setItem('bairro', bairro);
         localStorage.setItem('cidade', cidade);
         localStorage.setItem('estado', estado); 
-        alert('Dados salvos com sucesso!');
-    }
+        history.push('/farmacias');
+        alert('Dados salvos com sucesso!')
 
+        }
+
+    }
     const handleLimpar = (e) => {
         e.preventDefault();
         setNome('');
