@@ -46,12 +46,12 @@ function CadastroMedicamento (){
     }
 
     const handleCadastrar = (e) => {
+         e.preventDefault();
         if (nomeMedicamento === '' || nomeLaboratorio === '' || dosagemMedicamento === '' || descricaoMedicamento === '' || precoMedicamento === '' || tipoMedicamento === '') {
             alert('Preencha todos os campos!');
-            
+
             return  false;       
         } else {
-             e.preventDefault();
             setNomeMedicamentos([...nomeMedicamentos, nomeMedicamento]);
             setNomeLaboratorios([...nomeLaboratorios, nomeLaboratorio]);
             setDosagemMedicamentos([...dosagemMedicamentos, dosagemMedicamento]);
@@ -66,7 +66,8 @@ function CadastroMedicamento (){
             localStorage.setItem('precoMedicamentos', JSON.stringify([...precoMedicamentos, precoMedicamento]));
             localStorage.setItem('tipoMedicamentos', JSON.stringify([...tipoMedicamentos, tipoMedicamento]));
 
-          console.log('Dados salvos com sucesso!');
+          alert('Dados salvos com sucesso!');
+        //   handleLimpar(e);
         }
 
 
@@ -76,12 +77,15 @@ function CadastroMedicamento (){
     const handleLimpar = (e) => {
 
         e.preventDefault();
-        setNomeMedicamento('');
-        setNomeLaboratorio('');
-        setDosagemMedicamento('');
-        setDescricaoMedicamento('');
-        setPrecoMedicamento('');
-        setTipoMedicamento('');
+       
+            setNomeMedicamento(''),
+            setNomeLaboratorio(''),
+            setDosagemMedicamento(''),
+            setDescricaoMedicamento(''),
+            setPrecoMedicamento(''),
+            setTipoMedicamento(''),
+       
+       
         console.log('Dados limpos com sucesso!');
     }
 
