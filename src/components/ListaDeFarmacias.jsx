@@ -55,9 +55,9 @@ function ListaDeFarmacias(props) {
 
     ]
     return (
-        <div className="col-10 container-fluid d-grid">
+        <div className="col-10 container-fluid d-grid p-3">
 
-            <h1>Lista de Farmácias</h1>
+            <h4>Lista de Farmácias</h4>
             <div className='table-responsive'>
             <table className="table table-striped  align-middle">
                 <thead>

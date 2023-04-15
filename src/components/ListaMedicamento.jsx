@@ -82,8 +82,8 @@ function ListaMedicamento() {
         
 
     return (
-        <div className="col-10 container-fluid d-grid">
-            <h1>Lista de Medicamentos</h1>
+        <div className="col-10 container-fluid d-grid p-3">
+            <h4>Lista de Medicamentos</h4>
             <div className="row">
                 {medicamentos.map((medicamento) => (
                     <div className="col-3">
