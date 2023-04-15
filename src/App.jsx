@@ -1,7 +1,8 @@
-import Login from "./components/Login"
+//import Login from "./components/Login"
 //import CadastroNova from "./components/CadastroNova"
 //import CadastroMedicamento from "./components/Cadastromedicamento"
 //import ListaDeFarmacias from "./components/ListaDeFarmacias"
+import ListaMedicamento from "./components/ListaMedicamento"
 import Header from "./components/Header"
 function App() {
 
@@ -13,7 +14,8 @@ function App() {
 
     <div className="col-12 container-fluid">
       <Header/>
-      <Login/>
+      <ListaMedicamento/>
+      {/* <Login/> */}
       {/* <CadastroNova/> */}
       {/* <CadastroMedicamento/> */}
       {/* <ListaDeFarmacias/> */}
