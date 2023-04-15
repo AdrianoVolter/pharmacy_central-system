@@ -1,28 +1,56 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
+import Inicio from './pages/Inicio'
+import Medicamentos from './pages/Medicamentos'
+import Farmacias from './pages/Farmacias'
+import FormularioFarm from './pages/FormularioFarm'
+import FormularioMed from './pages/FormularioMed'
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import { BrowserRouter, createBrowserRouter } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
+const rotas = createBrowserRouter(
 
-const rotas = createBrowserRouter([
-  {
-    path: '/',
-    component: App,
-  },
+  [
+    { 
+      path: '/', 
+      element: <App /> 
+    },
+    {
+      path: '/inicio',
+      element: <Inicio />
+    },
+    {
+      path: '/medicamentos',
+      element: <Medicamentos />
+    },
+    {
+      path: '/farmacias',
+      element: <Farmacias />
+    },
+    {
+      path: '/formulario',
+      element: <FormularioFarm />
+    },
+    {
+      path: '/formulario_med',
+      element: <FormularioMed />
+    }
+  ]
+)
 
-])
-
-
+    
 
 
 ReactDOM.createRoot(document.getElementById('root')).render( 
 
   <React.StrictMode>
-    <BrowserRouter>
+   
+    <RouterProvider router={rotas}>
+    
     <App />
-    </BrowserRouter>
+    </RouterProvider>
   </React.StrictMode>,
 )
