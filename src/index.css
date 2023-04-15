@@ -2,6 +2,7 @@
 
 *{
   box-sizing: border-box;
+  
 }
 body{
   margin: 0;
@@ -10,7 +11,7 @@ body{
   font-size: 1rem;
   font-weight: 400;
   color: #000;
-  background-color: #fff;
+  background-color: #f9f9f9;
   
 }
 
@@ -41,4 +42,59 @@ body .container{
 .login:hover{
   color: #000;
   text-decoration: underline;
+}
+
+form input{
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000;
+  background-color: #fff;
+}
+
+h4{
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #dc1818;
+  margin-bottom: 1rem;
+}
+
+.modal {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  
+  bottom: 40px;
+  border: 1px solid rgb(13, 13, 13);
+  background-color: #aeaca9;
+  padding: 20px;
+  opacity: 2;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(154, 62, 62, 0.8);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f90707;
 }

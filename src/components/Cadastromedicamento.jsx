@@ -90,8 +90,8 @@ function CadastroMedicamento (){
     }
 
     return(
-        <div className="row col-10 p-2 m-2 border border-4">
-            <h2>Cadastro de Medicamento</h2>
+        <div className="row col-10 p-3 m-2 border border-4">
+            <h4>Cadastro de Medicamento</h4>
             <form onSubmit={handleCadastrar}>
             <div className="row ">
                 <div className="col-6">

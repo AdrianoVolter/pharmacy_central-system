@@ -33,9 +33,9 @@ const handleEnviar = (e) => {
         <div className=" col-12 container p-3">
             <div className="row col-6">
                 <div className=" col-12 ">
-                    <div className="card">
-                        <div className="card-header">
-                            <h3>Login</h3>
+                    <div className="">
+                        <div className="">
+                            <h4>Login</h4>
                         </div><br />
                         <div className="card-body">
                             <form 
