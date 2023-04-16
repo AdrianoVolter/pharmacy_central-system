@@ -5,7 +5,7 @@ function Farmacias() {
 
   return (
 
-    <div>
+    <div className=" container p-3">
 
 
         <ListaDeFarmacias />

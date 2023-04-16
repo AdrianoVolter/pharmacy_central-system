@@ -127,7 +127,7 @@ function CadastroNova ( ){
 
 
     return (
-        <div className="row col-10 p-3 m-2 border border-4">
+        <div className="row col-10 p-3 m-2 ">
 
 
             <h4>Cadastro de nova Farmácia</h4> <br />

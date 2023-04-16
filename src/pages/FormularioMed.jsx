@@ -5,7 +5,7 @@ function FormularioMed() {
 
   return (
 
-    <div className="container">
+    <div className="container p-3">
         <Cadastromedicamento />
     </div>
     )

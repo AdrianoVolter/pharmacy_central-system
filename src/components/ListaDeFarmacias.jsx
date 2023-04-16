@@ -66,10 +66,10 @@ function ListaDeFarmacias(props) {
 
 
     return (
-        <div className="col-10 container-fluid d-grid p-3 m-2 border border-4">
+        <div className="col-12 container-fluid  p-3  ">
 
-            <h4>Lista de Farmácias</h4>
-
+            <h4>Lista de Farmácias</h4> 
+            <input className="col-3 btn btn-secondary border p-2 m-2" type="button" value="Cadatrar nova farmacia "  onClick={(e) =>handleCdFarm()}/>
             <div className='table-responsive'>
             <table className="table table-striped  align-middle">
                 <thead>
@@ -116,7 +116,7 @@ function ListaDeFarmacias(props) {
                 </tbody>
             </table>
             </div>
-                <input className="col-3 btn btn-secondary border p-2 m-2" type="button" value="Cadatrar ma nova Farmacia "  onClick={(e) =>handleCdFarm()}/>
+                
         </div>
     )
 }

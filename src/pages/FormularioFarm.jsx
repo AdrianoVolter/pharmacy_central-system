@@ -5,7 +5,7 @@ function FormularioFarm () {
 
 
     return (
-        <div className="container">
+        <div className="container p-3">
             
                 <CadastroNova />
             

@@ -1,8 +1,10 @@
+import Header from '../components/Header';
+
 import Login from '../components/Login';
 
 function Inicio() {
   return (
-    <div className="container-fluid">
+    <div className="container p-3">
         <Login />
     </div>
   );

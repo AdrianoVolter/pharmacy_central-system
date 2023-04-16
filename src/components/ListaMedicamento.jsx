@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react'
 import { Modal } from 'react-bootstrap'
 import { Button } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom';
 
 function ListaMedicamento() {
+
+    const navigate = useNavigate()
 
     const [show, setShow] = useState(false);
     const fecharModal = () => setShow(false);
@@ -13,6 +16,10 @@ function ListaMedicamento() {
     const [nome, setNome] = useState("")
     const [marca, setMarca] = useState("")
     const [preco, setPreco] = useState("")
+
+    const handleCdMed=(e)=>{
+        navigate('/formulario_med')
+    }
     
 
     useEffect(() => {
@@ -66,8 +73,8 @@ function ListaMedicamento() {
         ]
 
     return (
-        <div className="col-10 container-fluid d-grid p-3">
-            <h4>Lista de Medicamentos</h4>
+        <div className="col-12 container-fluid  p-3  ">
+            <h4>Lista de Medicamentos</h4>  <input className=" justify-content-end col-3 btn btn-secondary border p-2 m-2" type="button" value="Cadatrar medicamento "  onClick={(e) =>handleCdMed()}/>
             <div className="row">
                 {medicamentos.map((medicamento) => (
                     <div className="col-3">
@@ -111,6 +118,7 @@ function ListaMedicamento() {
                     </div>
                 ))}
             </div>
+            
         </div>
 
     )

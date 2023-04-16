@@ -18,7 +18,7 @@ function Header() {
             />
         <Navbar.Brand href="#home">Phamacy Central System</Navbar.Brand>
         <Nav className="my-2 my-sm-0">
-          <Link className="btn" to="/">login</Link>
+          <Link className="btn" to="/">Login</Link>
           <Link className="btn" to="/farmacias">Farmácias</Link>
           {/* <Link className="btn" to="/formulario">Cadastrar Farmacia</Link> */}
           {/* <Link className="btn" to="/formulario_med">Cadastrar Medicamentos</Link> */}
