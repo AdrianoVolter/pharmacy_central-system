@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Children } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import Inicio from './pages/Inicio'
@@ -16,10 +16,10 @@ const rotas = createBrowserRouter(
   [
     { 
       path: '/', 
-      element: <App /> 
-    },
-    {
-      path: '/inicio',
+      element: <App /> ,
+      children:[
+         {
+      path: '/',
       element: <Inicio />
     },
     {
@@ -38,6 +38,9 @@ const rotas = createBrowserRouter(
       path: '/formulario_med',
       element: <FormularioMed />
     }
+  ]
+    },
+   
   ]
 )
 

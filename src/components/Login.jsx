@@ -1,5 +1,5 @@
-
-
+//apos validar os dados, o usuario é redirecionado para a pagina de farmacias
+import { useNavigate } from 'react-router-dom'
 import React, { useState } from 'react'
 
 
@@ -8,6 +8,8 @@ function Login(){
    
 const [email, setEmail] = useState('')
 const [senha, setSenha] = useState('')
+const [dados, setDados] = useState([])
+const navegar = useNavigate()
 
 
       
@@ -26,6 +28,9 @@ const handleEnviar = (e) => {
     }else{
     e.preventDefault()
     alert('Dados salvos com sucesso!')
+    setDados([...dados, {email, senha}])
+    console.log(dados)
+    navegar('/farmacias')
 
     
      } 

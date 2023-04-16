@@ -1,4 +1,4 @@
-
+import Cadastromedicamento from '../components/Cadastromedicamento'
 
 
 function FormularioMed() {
@@ -6,9 +6,7 @@ function FormularioMed() {
   return (
 
     <div className="container">
-        <h1>
-            FormularioMed
-        </h1>
+        <Cadastromedicamento />
     </div>
     )
 }

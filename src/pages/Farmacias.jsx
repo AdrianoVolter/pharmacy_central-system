@@ -1,4 +1,4 @@
-
+import ListaDeFarmacias from "../components/ListaDeFarmacias";
 
 
 function Farmacias() {
@@ -7,8 +7,8 @@ function Farmacias() {
 
     <div>
 
-      <h1>Farmacias</h1>
 
+        <ListaDeFarmacias />
     </div>
 
   );

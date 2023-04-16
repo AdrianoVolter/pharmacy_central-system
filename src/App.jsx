@@ -9,7 +9,7 @@ function App() {
 
     <div className="col-12 container-fluid">
       <Header/>
-      <Inicio />
+     
       <Outlet />
 
     
