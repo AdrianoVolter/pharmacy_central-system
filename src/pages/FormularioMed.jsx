@@ -1,14 +1,12 @@
-
+import Cadastromedicamento from '../components/Cadastromedicamento'
 
 
 function FormularioMed() {
 
   return (
 
-    <div className="container">
-        <h1>
-            FormularioMed
-        </h1>
+    <div className="container p-3">
+        <Cadastromedicamento />
     </div>
     )
 }

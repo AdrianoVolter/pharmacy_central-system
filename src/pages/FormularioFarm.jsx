@@ -1,14 +1,14 @@
-
+import CadastroNova from "../components/CadastroNova"
 
 function FormularioFarm () {
 
 
 
     return (
-        <div className="container">
-            <h1>
-                FormularioFarm
-            </h1>
+        <div className="container p-3">
+            
+                <CadastroNova />
+            
         </div>
     )
 }

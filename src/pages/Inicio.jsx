@@ -1,9 +1,11 @@
+import Header from '../components/Header';
 
+import Login from '../components/Login';
 
 function Inicio() {
   return (
-    <div>
-      <h1>Inicio</h1>
+    <div className="container p-3">
+        <Login />
     </div>
   );
 }

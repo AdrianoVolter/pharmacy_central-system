@@ -1,6 +1,7 @@
 //navbar 
 import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
+
 function Header() {
 
 
@@ -17,11 +18,11 @@ function Header() {
             />
         <Navbar.Brand href="#home">Phamacy Central System</Navbar.Brand>
         <Nav className="my-2 my-sm-0">
-          <Link className="btn" href="#home">login</Link>
-          <Link className="btn" href="#a3a18ftures">Farmácias</Link>
-          <Link className="btn" href="#pricing">Cadastrar Farmacia</Link>
-          <Link className="btn" href="#pricing">Cadastrar Medicamentos</Link>
-          <Link className="btn" href="#pricing">Lista Medicamentos</Link>
+          <Link className="btn" to="/">Login</Link>
+          <Link className="btn" to="/farmacias">Farmácias</Link>
+          {/* <Link className="btn" to="/formulario">Cadastrar Farmacia</Link> */}
+          {/* <Link className="btn" to="/formulario_med">Cadastrar Medicamentos</Link> */}
+          <Link className="btn" to="/medicamentos">Medicamentos</Link>
 
         </Nav>
       </Navbar>

@@ -1,14 +1,14 @@
-
+import ListaDeFarmacias from "../components/ListaDeFarmacias";
 
 
 function Farmacias() {
 
   return (
 
-    <div>
+    <div className=" container p-3">
 
-      <h1>Farmacias</h1>
 
+        <ListaDeFarmacias />
     </div>
 
   );

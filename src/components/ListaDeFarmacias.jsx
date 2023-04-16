@@ -1,6 +1,13 @@
-
+import { useNavigate } from "react-router-dom"
 //import {Card } from 'react-bootstrap'
 function ListaDeFarmacias(props) {
+
+
+    const navigate = useNavigate()
+    const handleCdFarm=(e)=>{
+       
+        navigate('/formulario')
+    }
 
  //Exemplo 
     const farmacias = [
@@ -54,10 +61,15 @@ function ListaDeFarmacias(props) {
         }
 
     ]
-    return (
-        <div className="col-10 container-fluid d-grid p-3">
 
-            <h4>Lista de Farmácias</h4>
+
+
+
+    return (
+        <div className="col-12 container-fluid  p-3  ">
+
+            <h4>Lista de Farmácias</h4> 
+            <input className="col-3 btn btn-secondary border p-2 m-2" type="button" value="Cadatrar nova farmacia "  onClick={(e) =>handleCdFarm()}/>
             <div className='table-responsive'>
             <table className="table table-striped  align-middle">
                 <thead>
@@ -104,7 +116,7 @@ function ListaDeFarmacias(props) {
                 </tbody>
             </table>
             </div>
-                   
+                
         </div>
     )
 }

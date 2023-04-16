@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import { Alert } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 function CadastroMedicamento (){
 
@@ -18,6 +19,7 @@ function CadastroMedicamento (){
     const [precoMedicamentos, setPrecoMedicamentos] = useState([]);
     const [tipoMedicamentos, setTipoMedicamentos] = useState([]);
 
+    const navigate = useNavigate();
 
     
 
@@ -67,6 +69,7 @@ function CadastroMedicamento (){
             localStorage.setItem('tipoMedicamentos', JSON.stringify([...tipoMedicamentos, tipoMedicamento]));
 
           alert('Dados salvos com sucesso!');
+            navigate('/medicamentos');
         //   handleLimpar(e);
         }
 
@@ -90,7 +93,7 @@ function CadastroMedicamento (){
     }
 
     return(
-        <div className="row col-10 p-3 m-2 border border-4">
+        <div className="row col-10 p-3 m-2 ">
             <h4>Cadastro de Medicamento</h4>
             <form onSubmit={handleCadastrar}>
             <div className="row ">

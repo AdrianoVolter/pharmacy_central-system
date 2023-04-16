@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function CadastroNova ( ){
+
+    const navegar = useNavigate();
 
     const [nome, setNome] = useState('');
     const [cnpj, setCnpj] = useState('');
@@ -96,7 +99,7 @@ function CadastroNova ( ){
         localStorage.setItem('estado', estado); 
         console.log('Dados salvos com sucesso!');
         alert('Dados salvos com sucesso!')
-
+        navegar('/farmacias');
         }
 
     }
@@ -124,7 +127,7 @@ function CadastroNova ( ){
 
 
     return (
-        <div className="row col-10 p-3 m-2 border border-4">
+        <div className="row col-10 p-3 m-2 ">
 
 
             <h4>Cadastro de nova Farmácia</h4> <br />
