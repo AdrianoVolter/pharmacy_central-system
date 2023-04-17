@@ -27,7 +27,7 @@ const handleEnviar = (e) => {
         return;
     }else{
     e.preventDefault()
-    alert('Dados salvos com sucesso!')
+    alert('Login realizado com sucesso!')
     setDados([...dados, {email, senha}])
     console.log(dados)
     navegar('/farmacias')

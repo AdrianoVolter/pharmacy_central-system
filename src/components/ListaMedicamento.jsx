@@ -7,98 +7,97 @@ function ListaMedicamento() {
 
     const navigate = useNavigate()
 
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState(false); //modal
     const fecharModal = () => setShow(false);
     const abrirModal = () => setShow(true);
-
-    
-    const [texto, setTexto] = useState("")
-    const [nome, setNome] = useState("")
-    const [marca, setMarca] = useState("")
-    const [preco, setPreco] = useState("")
 
     const handleCdMed=(e)=>{
         navigate('/formulario_med')
     }
     
-
-    useEffect(() => {
-        setTexto("adipiscing elit. Donec euismod, nisl sit amet aliquam luctus, nisl nisl aliquam nisl, eu aliquam nisl nisl sit amet nisl.")
-    }, [texto])
-
-
     const medicamentos = [
-        {
-            "imagem": "src/assets/garrafa-e-caixa-de-medicamentos-700-93492520.jpg",
+        {            
             "nome": "Medicamento 1",
-            "marca": "Marca A",
+            "dose": "10mg",
+            "tiopo": "Medicamento comum",
+            "laboratorio": "Lab-A",
             "preco": 10.99,
-            "texto": "Lorem adipiscing elit. Donec euismod, nisl sit amet aliquam luctus, nisl nisl aliquam nisl, eu aliquam nisl nisl sit amet nisl."
-          },
-          {
-            "imagem": "src/assets/garrafa-e-caixa-de-medicamentos-700-93492520.jpg",
+            "descricao": "Lorem adipiscing elit. Donec euismod, nisl sit amet aliquam luctus, nisl nisl aliquam nisl, eu aliquam nisl nisl sit amet nisl."
+            },
+          {   
             "nome": "Medicamento 2",
-            "marca": "Marca B",
-            "preco": 15.99,
-            "texto": "wwwwwsit amet, consectetur adipiscing elit. Donec euismod, nisl sit amet aliquam luctus, nisl nisl aliquam nisl, eu aliquam nisl nisl sit amet nisl."
-          },
-          {
-            "imagem": "src/assets/garrafa-e-caixa-de-medicamentos-700-93492520.jpg",
+            "dose": "10mg",
+            "tiopo": "Medicamento comum",
+            "laboratorio": "Lab-A",
+            "preco": 10.99,
+            "descricao": "Lorem adipiscing elit. Donec euismod, nisl sit amet aliquam luctus, nisl nisl aliquam nisl, eu aliquam nisl nisl sit amet nisl."      
+        },
+          { 
             "nome": "Medicamento 3",
-            "marca": "Marca C",
-            "preco": 20.49,
-            "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl sit amet aliquam luctus, nisl nisl aliquam nisl, eu aliquam nisl nisl sit amet nisl."
-          },
+            "dose": "10mg",
+            "tiopo": "Medicamento comum",
+            "laboratorio": "Lab-A",
+            "preco": 10.99,
+            "descricao": "Lorem adipiscing elit. Donec euismod, nisl sit amet aliquam luctus, nisl nisl aliquam nisl, eu aliquam nisl nisl sit amet nisl."
+        },
           {
-            "imagem": "src/assets/garrafa-e-caixa-de-medicamentos-700-93492520.jpg",
             "nome": "Medicamento 4",
-            "marca": "Marca D",
-            "preco": 5.99,
-            "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl sit amet aliquam luctus, nisl nisl aliquam nisl, eu aliquam nisl nisl sit amet nisl."
-          },
+            "dose": "10mg",
+            "tiopo": "Medicamento comum",
+            "laboratorio": "Lab-A",
+            "preco": 10.99,
+            "descricao": "Lorem adipiscing elit. Donec euismod, nisl sit amet aliquam luctus, nisl nisl aliquam nisl, eu aliquam nisl nisl sit amet nisl."
+        },
           {
-            "imagem": "src/assets/garrafa-e-caixa-de-medicamentos-700-93492520.jpg",
             "nome": "Medicamento 5",
-            "marca": "Marca E",
-            "preco": 12.79,
-            "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl sit amet aliquam luctus, nisl nisl aliquam nisl, eu aliquam nisl nisl sit amet nisl."
-          },
+            "dose": "10mg",
+            "tiopo": "Medicamento comum",
+            "laboratorio": "Lab-A",
+            "preco": 10.99,
+            "descricao": "Lorem adipiscing elit. Donec euismod, nisl sit amet aliquam luctus, nisl nisl aliquam nisl, eu aliquam nisl nisl sit amet nisl."
+        },
           {
-            "imagem": "src/assets/garrafa-e-caixa-de-medicamentos-700-93492520.jpg",
             "nome": "Medicamento 6",
-            "marca": "Marca F",
-            "preco": 8.99,
-            "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl sit amet aliquam luctus, nisl nisl aliquam nisl, eu aliquam nisl nisl sit amet nisl."
-          },
-        ]
+            "dose": "10mg",
+            "tiopo": "Medicamento comum",
+            "laboratorio": "Lab-A",
+            "preco": 10.99,
+            "descricao": "Lorem adipiscing elit. Donec euismod, nisl sit amet aliquam luctus, nisl nisl aliquam nisl, eu aliquam nisl nisl sit amet nisl."
+        },
+       ]
 
-    return (
+       return (
         <div className="col-12 container-fluid  p-3  ">
             <h4>Lista de Medicamentos</h4>  <input className=" justify-content-end col-3 btn btn-secondary border p-2 m-2" type="button" value="Cadatrar medicamento "  onClick={(e) =>handleCdMed()}/>
             <div className="row">
                 {medicamentos.map((medicamento) => (
                     <div className="col-3">
                         <div className="card p-2 m-2">
-                            <img src={medicamento.imagem} className="card-img-top" alt="..."/>
+                            <img src="src/assets/garrafa-e-caixa-de-medicamentos-700-93492520.jpg" className="card-img-top" alt="..."/>
                             <div className="card-body">
-                                <h5 className="card-title">{medicamento.nome}</h5>
-                                <p className="card-text">{medicamento.marca}</p>
-                                <p className="card-text">R$ {medicamento.preco}</p>
+                                <div className='row'>
+                                <div className='col-7'>
+                                     <h6 className="card-title">{medicamento.nome}</h6>
+                                </div>
+                                <div className='col-5'>
+                                    <p className="card-text">{medicamento.dose}</p>
+                                </div>
+                                </div>
                                 
                                 <Button 
                                     variant="primary" 
                                     onClick={
                                         () => {
                                             abrirModal()
-                                            setTexto(medicamento.texto)
+                                            setTexto(medicamento.descricao)
                                             setNome(medicamento.nome)
-                                            setMarca(medicamento.marca)
+                                            setMarca(medicamento.laboratorio)
                                             setPreco(medicamento.preco)
                                             
                                             
                                         }
                                     }
-
+    
                                     >
                                         Detalhes
                                     </Button>
@@ -106,7 +105,23 @@ function ListaMedicamento() {
                                     <Modal.Header closeButton>
                                         <Modal.Title>{medicamento.nome}</Modal.Title>
                                     </Modal.Header>
-                                    <Modal.Body>{medicamento.texto}</Modal.Body>
+
+                                    <Modal.Body>
+                                        <div className='row'>
+                                            <div className='col-4'>
+                                            <h6>Laboratorio: </h6><p>{medicamento.laboratorio}</p>
+                                            </div>
+                                            <div className='col-4'>
+                                            <h6>Tipo de medicamento: </h6><p>Medicamento controlado</p>
+                                            </div>
+                                            <div className='col-4'>
+                                            <h6>Preço: </h6><p>R$ {medicamento.preco}</p>
+                                            </div>
+                                        </div>
+                                      
+                                        <h5>Descrição:</h5> {medicamento.descricao}
+                                        
+                                    </Modal.Body>
                                     <Modal.Footer>
                                         <Button variant="secondary" onClick={fecharModal}>
                                             Fechar
@@ -120,8 +135,11 @@ function ListaMedicamento() {
             </div>
             
         </div>
-
+    
     )
 }
 
 export default ListaMedicamento
+
+
+

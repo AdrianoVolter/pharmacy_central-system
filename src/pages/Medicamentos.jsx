@@ -1,11 +1,17 @@
 import ListaMediacamento from '../components/ListaMedicamento'
 
 
-function Medicamentos() {
+function Medicamentos({
+   
+
+}) {
 
     return (
         <div className="container d-grid p-3">
-            <ListaMediacamento/>
+            <ListaMediacamento
+                
+            />
+          
         </div>
     )
 }
