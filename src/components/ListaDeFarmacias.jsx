@@ -105,7 +105,7 @@ function ListaDeFarmacias(props) {
                                 <td>{farmacia.cidade}</td>
                                 <td>{farmacia.estado}</td>
                                 <td>
-                                    <button className="btn btn-secondary border p-2 m-2" onClick={abrirModal}>Ver mais</button>
+                                    <button className="btn btn-primary border p-2 m-2" onClick={abrirModal}>Ver mais</button>
                                 </td>
                                 
                             </tr>
@@ -162,7 +162,7 @@ function ListaDeFarmacias(props) {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={fecharModal}>
-                        Close
+                        Fechar
                     </Button>
                   
                 </Modal.Footer>

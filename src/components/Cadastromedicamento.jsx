@@ -1,29 +1,53 @@
 import { useNavigate } from 'react-router-dom';
+import { useState ,useEffect } from 'react';
 
-//const {nomeMedicamento, setNomeMedicamento, nomeLaboratorio, setNomeLaboratorio, dosagemMedicamento, setDosagemMedicamento, descricaoMedicamento, setDescricaoMedicamento, precoMedicamento, setPrecoMedicamento, tipoMedicamento, setTipoMedicamento, CadastrarMedicamento, limparCampos} = useContexto();
+function CadastroMedicamento ( ) {
+     
+  const [nomeMedicamento, setNomeMedicamento] = useState('');
+  const [nomeLaboratorio, setNomeLaboratorio] = useState('');
+  const [dosagemMedicamento, setDosagemMedicamento] = useState('');
+  const [descricaoMedicamento, setDescricaoMedicamento] = useState('');
+  const [precoMedicamento, setPrecoMedicamento] = useState('');
+  const [tipoMedicamento, setTipoMedicamento] = useState('');
+  const [listaMedicamentos, setListaMedicamentos] = useState([]);
 
-function CadastroMedicamento ( 
+  const navigate = useNavigate();
 
-
-    nomeMedicamento,
-    setNomeMedicamento,
-    nomeLaboratorio,
-    setNomeLaboratorio,
-    dosagemMedicamento,
-    setDosagemMedicamento,
-    descricaoMedicamento,
-    setDescricaoMedicamento,
-    precoMedicamento,
-    setPrecoMedicamento,
-    tipoMedicamento,
-    setTipoMedicamento,
-    CadastrarMedicamento,
-    limparCampos
-
-) {
+ function CadastrarMedicamento(){
     
-    //const {nomeMedicamento, setNomeMedicamento, nomeLaboratorio, setNomeLaboratorio, dosagemMedicamento, setDosagemMedicamento, descricaoMedicamento, setDescricaoMedicamento, precoMedicamento, setPrecoMedicamento, tipoMedicamento, setTipoMedicamento, CadastrarMedicamento, limparCampos} = useContexto(Contexto);
-   
+   let lista = {'nome': nomeMedicamento, 'laboratorio': nomeLaboratorio, 'dosagem': dosagemMedicamento, 'descricao': descricaoMedicamento, 'preco': precoMedicamento, 'tipo': tipoMedicamento}
+//validar campos
+    if(nomeMedicamento === '' || nomeLaboratorio === '' || dosagemMedicamento === '' || descricaoMedicamento === '' || precoMedicamento === '' || tipoMedicamento === ''){
+        alert('Preencha todos os campos');
+       
+    } else {
+        setListaMedicamentos([...listaMedicamentos, lista]);
+        alert('Medicamento cadastrado com sucesso!');
+        console.log(lista);
+        navigate('/medicamentos');
+    }
+  }
+
+  function salvarDados(){
+    localStorage.setItem('listaMedicamentos', JSON.stringify(listaMedicamentos));
+  }
+
+  useEffect((e) => {
+    salvarDados();
+    console.log(listaMedicamentos);
+
+  }, [listaMedicamentos]);
+
+  function limparCampos(){
+    
+    setNomeMedicamento('');
+    setNomeLaboratorio('');
+    setDosagemMedicamento('');
+    setDescricaoMedicamento('');
+    setPrecoMedicamento('');
+    setTipoMedicamento('');
+  }
+
     return(
         <div className="row col-10 p-3 m-2 ">
             <h4>Cadastro de Medicamento</h4>
@@ -76,97 +100,3 @@ function CadastroMedicamento (
 
 export default CadastroMedicamento
 
-
-
-
-
-
-
-
-
- // const [nomeMedicamento, setNomeMedicamento] = useState('');
-    // const [nomeLaboratorio, setNomeLaboratorio] = useState('');
-    // const [dosagemMedicamento, setDosagemMedicamento] = useState('');
-    // const [descricaoMedicamento, setDescricaoMedicamento] = useState('');
-    // const [precoMedicamento, setPrecoMedicamento] = useState('');
-    // const [tipoMedicamento, setTipoMedicamento] = useState('');
-
-    // const [nomeMedicamentos, setNomeMedicamentos] = useState([]);
-    // const [nomeLaboratorios, setNomeLaboratorios] = useState([]);
-    // const [dosagemMedicamentos, setDosagemMedicamentos] = useState([]);
-    // const [descricaoMedicamentos, setDescricaoMedicamentos] = useState([]);
-    // const [precoMedicamentos, setPrecoMedicamentos] = useState([]);
-    // const [tipoMedicamentos, setTipoMedicamentos] = useState([]);
-
-    // const navigate = useNavigate();
-
-    
-
-    // const handleNomeMedicamento = (e) => {
-    //     setNomeMedicamento(e.target.value);
-    // }
-
-    // const handleNomeLaboratorio = (e) => {
-    //     setNomeLaboratorio(e.target.value);
-    // }
-
-    // const handleDosagemMedicamento = (e) => {
-    //     setDosagemMedicamento(e.target.value);
-    // }
-
-    // const handleDescricaoMedicamento = (e) => {
-    //     setDescricaoMedicamento(e.target.value);
-    // }
-
-    // const handlePrecoMedicamento = (e) => {
-    //     setPrecoMedicamento(e.target.value);
-    // }
-
-    // const handleTipoMedicamento = (e) => {
-    //     setTipoMedicamento(e.target.value);
-    // }
-
-    // const handleCadastrar = (e) => {
-    //      e.preventDefault();
-    //     if (nomeMedicamento === '' || nomeLaboratorio === '' || dosagemMedicamento === '' || descricaoMedicamento === '' || precoMedicamento === '' || tipoMedicamento === '') {
-    //         alert('Preencha todos os campos!');
-
-    //         return  false;       
-    //     } else {
-    //         setNomeMedicamentos([...nomeMedicamentos, nomeMedicamento]);
-    //         setNomeLaboratorios([...nomeLaboratorios, nomeLaboratorio]);
-    //         setDosagemMedicamentos([...dosagemMedicamentos, dosagemMedicamento]);
-    //         setDescricaoMedicamentos([...descricaoMedicamentos, descricaoMedicamento]);
-    //         setPrecoMedicamentos([...precoMedicamentos, precoMedicamento]);
-    //         setTipoMedicamentos([...tipoMedicamentos, tipoMedicamento]);
-
-    //         localStorage.setItem('nomeMedicamentos', JSON.stringify([...nomeMedicamentos, nomeMedicamento]));
-    //         localStorage.setItem('nomeLaboratorios', JSON.stringify([...nomeLaboratorios, nomeLaboratorio]));
-    //         localStorage.setItem('dosagemMedicamentos', JSON.stringify([...dosagemMedicamentos, dosagemMedicamento]));
-    //         localStorage.setItem('descricaoMedicamentos', JSON.stringify([...descricaoMedicamentos, descricaoMedicamento]));
-    //         localStorage.setItem('precoMedicamentos', JSON.stringify([...precoMedicamentos, precoMedicamento]));
-    //         localStorage.setItem('tipoMedicamentos', JSON.stringify([...tipoMedicamentos, tipoMedicamento]));
-
-    //       alert('Dados salvos com sucesso!');
-    //         navigate('/medicamentos');
-    //     //   handleLimpar(e);
-    //     }
-
-
-       
-    // }
-
-    // const handleLimpar = (e) => {
-
-    //     e.preventDefault();
-       
-    //         setNomeMedicamento(''),
-    //         setNomeLaboratorio(''),
-    //         setDosagemMedicamento(''),
-    //         setDescricaoMedicamento(''),
-    //         setPrecoMedicamento(''),
-    //         setTipoMedicamento(''),
-       
-       
-    //     console.log('Dados limpos com sucesso!');
-    // }
