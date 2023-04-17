@@ -7,26 +7,14 @@ function ListaMedicamento() {
 
     const navigate = useNavigate()
 
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState(false); //modal
     const fecharModal = () => setShow(false);
     const abrirModal = () => setShow(true);
-
-    
-    const [texto, setTexto] = useState("")
-    const [nome, setNome] = useState("")
-    const [marca, setMarca] = useState("")
-    const [preco, setPreco] = useState("")
 
     const handleCdMed=(e)=>{
         navigate('/formulario_med')
     }
     
-
-    useEffect(() => {
-        setTexto("adipiscing elit. Donec euismod, nisl sit amet aliquam luctus, nisl nisl aliquam nisl, eu aliquam nisl nisl sit amet nisl.")
-    }, [texto])
-
-
     const medicamentos = [
         {
             "imagem": "src/assets/garrafa-e-caixa-de-medicamentos-700-93492520.jpg",
@@ -70,9 +58,9 @@ function ListaMedicamento() {
             "preco": 8.99,
             "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl sit amet aliquam luctus, nisl nisl aliquam nisl, eu aliquam nisl nisl sit amet nisl."
           },
-        ]
+       ]
 
-    return (
+       return (
         <div className="col-12 container-fluid  p-3  ">
             <h4>Lista de Medicamentos</h4>  <input className=" justify-content-end col-3 btn btn-secondary border p-2 m-2" type="button" value="Cadatrar medicamento "  onClick={(e) =>handleCdMed()}/>
             <div className="row">
@@ -98,7 +86,7 @@ function ListaMedicamento() {
                                             
                                         }
                                     }
-
+    
                                     >
                                         Detalhes
                                     </Button>
@@ -120,8 +108,11 @@ function ListaMedicamento() {
             </div>
             
         </div>
-
+    
     )
 }
 
 export default ListaMedicamento
+
+
+

@@ -1,8 +1,21 @@
 //navbar 
 import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function Header() {
+
+  const location = useLocation();
+  const [disabled, setDisabled] = useState(false);
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setDisabled(true);
+    } else {
+      setDisabled(false);
+    }
+  }, [location]);
 
 
 
@@ -18,12 +31,30 @@ function Header() {
             />
         <Navbar.Brand href="#home">Phamacy Central System</Navbar.Brand>
         <Nav className="my-2 my-sm-0">
-          <Link className="btn" to="/">Login</Link>
-          <Link className="btn" to="/farmacias">Farmácias</Link>
-          {/* <Link className="btn" to="/formulario">Cadastrar Farmacia</Link> */}
-          {/* <Link className="btn" to="/formulario_med">Cadastrar Medicamentos</Link> */}
-          <Link className="btn" to="/medicamentos">Medicamentos</Link>
+          <Link 
+            className="btn" 
+            to="/"
+            >Login
+            </Link>
+          {
+            disabled ? null :
+          <Link 
+            className="btn" 
+            to="/farmacias"
+            disabled={true}
+            >Farmácias
+            </Link>
+          }
+          {
+            disabled ? null :
+          <Link 
+            className="btn" 
+            to="/medicamentos"
+            disabled={false}
 
+            >Medicamentos
+            </Link>
+          }
         </Nav>
       </Navbar>
     </div>

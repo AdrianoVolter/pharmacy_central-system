@@ -11,6 +11,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
+
+
 const rotas = createBrowserRouter(
 
   [
@@ -18,26 +20,26 @@ const rotas = createBrowserRouter(
       path: '/', 
       element: <App /> ,
       children:[
-         {
-      path: '/',
-      element: <Inicio />
-    },
-    {
-      path: '/medicamentos',
-      element: <Medicamentos />
-    },
-    {
-      path: '/farmacias',
-      element: <Farmacias />
-    },
-    {
-      path: '/formulario',
-      element: <FormularioFarm />
-    },
-    {
-      path: '/formulario_med',
-      element: <FormularioMed />
-    }
+      {
+        path: '/',
+        element: <Inicio />
+      },
+      {
+        path: '/medicamentos',
+        element: <Medicamentos />
+      },
+      {
+        path: '/farmacias',
+        element: <Farmacias />
+      },
+      {
+        path: '/formulario',
+        element: <FormularioFarm />
+      },
+      {
+        path: '/formulario_med',
+        element: <FormularioMed />
+      }
   ]
     },
    
