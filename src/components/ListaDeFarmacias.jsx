@@ -19,18 +19,18 @@ function ListaDeFarmacias(props) {
     const farmacias = [
         
         {
-            logradouro:	'Servidão Manoel Braz do Nascimento',	
-            telefone:	'4884687433'	,
+            logradouro:	'Servidão Manoel',	
+            telefone:	'4802022222'	,
             cep	:'88049500',	
-            bairro:	'Tapera da Base',
-            celular:'48984687433',
+            bairro:	'Tapera ',
+            celular:'4899999999',
             cnpj:'45556666666',
             complemento:'Casa',	
             numero:'40',
             nome:'VolterFarma',
             email:'adriano.valter@hotmail.com',
             cidade:'Florianópolis'	,
-            nomeFantasia: 'VolterFarma eeeeeeee'	,
+            nomeFantasia: 'VolterFarma LTDA'	,
             estado:'SC',
 
         },
