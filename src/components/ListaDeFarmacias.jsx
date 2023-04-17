@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom"
+import { Modal, Button } from "react-bootstrap"
+import { useState } from "react"
 //import {Card } from 'react-bootstrap'
 function ListaDeFarmacias(props) {
 
@@ -8,6 +10,10 @@ function ListaDeFarmacias(props) {
        
         navigate('/formulario')
     }
+
+    const [show, setShow] = useState(false); //modal
+    const fecharModal = () => setShow(false);
+    const abrirModal = () => setShow(true);
 
  //Exemplo 
     const farmacias = [
@@ -21,10 +27,10 @@ function ListaDeFarmacias(props) {
             cnpj:'45556666666',
             complemento:'Casa',	
             numero:'40',
-            nome:'VolterFarma wwwwwwwww',
+            nome:'VolterFarma',
             email:'adriano.valter@hotmail.com',
             cidade:'Florianópolis'	,
-            nomeFantasia:'VolterFarma eeeeeeee'	,
+            nomeFantasia: 'VolterFarma eeeeeeee'	,
             estado:'SC',
 
         },
@@ -74,20 +80,11 @@ function ListaDeFarmacias(props) {
             <table className="table table-striped  align-middle">
                 <thead>
                     <tr>
-                        <th>Nome</th>
-                        <th>Nome Fantasia</th>
-                        <th>Telefone</th>
-                        <th>Celular</th>
-                        <th>CNPJ</th>
-                        <th>CEP</th>
-                        <th>Logradouro</th>
-                        <th>Numero</th>
-                        <th>Complemento</th>
+                        <th>Nome da Farmácia</th>
                         <th>Bairro</th>
                         <th>Cidade</th>
                         <th>Estado</th>
-                        <th>Email</th>
-                        
+                        <th>Ver detalhes</th>
                     </tr>
                 </thead>
                 <tbody className=''>
@@ -96,18 +93,20 @@ function ListaDeFarmacias(props) {
 
                             <tr key={index}>
                                 <td>{farmacia.nome}</td>
-                                <td>{farmacia.nomeFantasia}</td>
+                                {/* <td>{farmacia.nomeFantasia}</td>
                                 <td>{farmacia.telefone}</td>
                                 <td>{farmacia.celular}</td>
                                 <td>{farmacia.cnpj}</td>
                                 <td>{farmacia.cep}</td>
                                 <td>{farmacia.logradouro}</td>
                                 <td>{farmacia.numero}</td>
-                                <td>{farmacia.complemento}</td>
+                                <td>{farmacia.complemento}</td> */}
                                 <td>{farmacia.bairro}</td>
                                 <td>{farmacia.cidade}</td>
                                 <td>{farmacia.estado}</td>
-                                <td>{farmacia.email}</td>
+                                <td>
+                                    <button className="btn btn-secondary border p-2 m-2" onClick={abrirModal}>Ver mais</button>
+                                </td>
                                 
                             </tr>
 
@@ -116,6 +115,60 @@ function ListaDeFarmacias(props) {
                 </tbody>
             </table>
             </div>
+            <Modal show={show} onHide={fecharModal}>
+                <Modal.Header closeButton>
+                    <Modal.Title><h4>{farmacias[0].nome}</h4></Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                   
+                     <div className="d-flex ">
+                            <h5>Nome Fantasia: <span>{ farmacias[0].nomeFantasia}</span> </h5>
+                        </div>
+                    <div className="row">
+                        <div className="col-6">
+                            <h5>Telefone: {farmacias[0].telefone}</h5>
+                        </div>
+                        <div className="col-6">
+                            <h5>Celular: {farmacias[0].celular}</h5>
+                        </div>
+                    </div> <br />
+                    <div className="row">
+                        <div className="col-6">
+                            <h5>CNPJ: {farmacias[0].cnpj}</h5>
+                        </div>
+                        <div className="col-6">
+                            <h5>CEP: {farmacias[0].cep}</h5>
+                        </div>
+                    </div> <br />
+                        <div>
+                            <h5>Logradouro: {farmacias[0].logradouro}</h5>
+                        </div>
+                        <div>
+                            <h5>Número: {farmacias[0].numero}</h5>
+                        </div> 
+                        <div>
+                            <h5>Complemento: {farmacias[0].complemento}</h5>
+                        </div> <br />
+                        <div>
+                            <h5>Bairro: {farmacias[0].bairro}</h5>
+                        </div>
+                        <div>
+                            <h5>Cidade: {farmacias[0].cidade}</h5>
+                        </div>
+                        <div>
+                            <h5>Estado: {farmacias[0].estado}</h5>
+                        </div>
+
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={fecharModal}>
+                        Close
+                    </Button>
+                  
+                </Modal.Footer>
+            </Modal>
+                    
+
                 
         </div>
     )
