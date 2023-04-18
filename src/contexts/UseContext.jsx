@@ -1,5 +1,15 @@
 import { createContext } from "react";
+import { useState } from "react";
 
-const UseContext = createContext({});
+export const UseContext = createContext();
 
-export default UseContext;
+
+function UseContextProvider({ children }) {
+  return (
+    <UseContext.Provider value={{  }}>
+      {children}
+    </UseContext.Provider>
+  );
+}
+
+export default UseContextProvider;
