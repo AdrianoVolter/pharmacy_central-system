@@ -1,19 +1,13 @@
 import { Outlet } from "react-router-dom"
 import Header from "./components/Header"
-
-import UseContext from "./contexts/UseContext"
-
+// import UseContext from "./contexts/UseContext"
+// import { useEffect } from "react"
 //import ContextoProvider from "./context/Contexto"
+
 function App() {
-
-
 
   return (
     
-    <UseContext.Provider value={{
-      listaMedicamentos: [], setListaMedicamentos: () => {},
-      
-    }}>
     <div className="col-12 container-fluid">
       <Header/>
      
@@ -21,7 +15,7 @@ function App() {
 
     
     </div>
-    </UseContext.Provider>
+   
   )
 }
 

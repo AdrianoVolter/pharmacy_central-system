@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { useState ,useEffect } from 'react';
+// import UseContext from '../contexts/UseContext';
+// import { useContext } from 'react';
 
-function CadastroMedicamento ( ) {
+function CadastroMedicamento () {
      
   const [nomeMedicamento, setNomeMedicamento] = useState('');
   const [nomeLaboratorio, setNomeLaboratorio] = useState('');
@@ -9,34 +11,40 @@ function CadastroMedicamento ( ) {
   const [descricaoMedicamento, setDescricaoMedicamento] = useState('');
   const [precoMedicamento, setPrecoMedicamento] = useState('');
   const [tipoMedicamento, setTipoMedicamento] = useState('');
-  const [listaMedicamentos, setListaMedicamentos] = useState([]);
-
+  const [listaMedicamentos, setListaMedicamentos] = useState([ ]);
+  
   const navigate = useNavigate();
 
  function CadastrarMedicamento(){
+   
     
-   let lista = {'nome': nomeMedicamento, 'laboratorio': nomeLaboratorio, 'dosagem': dosagemMedicamento, 'descricao': descricaoMedicamento, 'preco': precoMedicamento, 'tipo': tipoMedicamento}
+ let lista = {'nome': nomeMedicamento, 'laboratorio': nomeLaboratorio, 'dosagem': dosagemMedicamento, 'descricao': descricaoMedicamento, 'preco': precoMedicamento, 'tipo': tipoMedicamento}
 //validar campos
-    if(nomeMedicamento === '' || nomeLaboratorio === '' || dosagemMedicamento === '' || descricaoMedicamento === '' || precoMedicamento === '' || tipoMedicamento === ''){
+    if( nomeMedicamento === '' || nomeLaboratorio === '' || dosagemMedicamento === '' || descricaoMedicamento === '' || precoMedicamento === '' || tipoMedicamento === ''){
         alert('Preencha todos os campos');
-       
-    } else {
-        setListaMedicamentos([...listaMedicamentos, lista]);
-        alert('Medicamento cadastrado com sucesso!');
-        console.log(lista);
+       return;
+    } else {  
+        listaMedicamentos.push(lista);
+        setListaMedicamentos(listaMedicamentos);
+        console.log(listaMedicamentos);
+        limparCampos();
+        alert('Medicamento cadastrado com sucesso');
+        AdicionarLocalStorage();
         navigate('/medicamentos');
     }
+        
+    //função adicionar no localstorage sem duplicar e atualizar a lista
+
+    function AdicionarLocalStorage(){
+        let medicamentos = JSON.parse(localStorage.getItem('listaMedicamentos'));
+        if(medicamentos === null){
+            medicamentos = [];
+        }
+        medicamentos.push(lista);
+        localStorage.setItem('listaMedicamentos', JSON.stringify(medicamentos));
+    }
+
   }
-
-  function salvarDados(){
-    localStorage.setItem('listaMedicamentos', JSON.stringify(listaMedicamentos));
-  }
-
-  useEffect((e) => {
-    salvarDados();
-    console.log(listaMedicamentos);
-
-  }, [listaMedicamentos]);
 
   function limparCampos(){
     
@@ -75,6 +83,7 @@ function CadastroMedicamento ( ) {
                     <div className="col-4">               
                         <label className='form-label'>Tipo do medicamento</label>  <br/>
                         <select onChange={(e)=>setTipoMedicamento(e.target.value)} className="form-control" value={tipoMedicamento} name="tipoMedicamento" id="tipoMedicamento">
+                            <option value="#">Escolha o tipo</option>
                             <option value="medicamentoControlado">Medicamento controlado</option>
                             <option value="medicamentoComum">Medicamento comum</option>
                         </select> <br/>
@@ -89,7 +98,10 @@ function CadastroMedicamento ( ) {
             </div>
             <div className="row">
 
-                <button className='btn btn-secondary col-2 m-2' onClick={CadastrarMedicamento} type="submit">Cadastrar</button>
+                <button className='btn btn-secondary col-2 m-2' onClick={(e) => {
+                    CadastrarMedicamento (e)
+                }
+                    } type="submit">Cadastrar</button>
                 <button className='btn btn-secondary col-2 m-2' onClick={limparCampos} type="reset">Limpar</button>
             </div>
             </form>
