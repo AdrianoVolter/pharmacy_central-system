@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { useState ,useEffect } from 'react';
 //import UseContext from '../contexts/UseContext';
-import MedContext from '../contexts/MedContext';
-import { useContext } from 'react';
+//import MedContext from '../contexts/MedContext';
+//import { useContext } from 'react';
 
 
 function CadastroMedicamento () {
@@ -14,7 +14,7 @@ function CadastroMedicamento () {
   const [precoMedicamento, setPrecoMedicamento] = useState('');
   const [tipoMedicamento, setTipoMedicamento] = useState('');
   const [listaMedicamentos, setListaMedicamentos] = useState([ ]);
-    const { medicamentos, setMedicamentos } = useContext(MedContext);
+    //const { medicamentos, setMedicamentos } = useContext(MedContext);
   
   const navigate = useNavigate();
 
@@ -37,11 +37,17 @@ function CadastroMedicamento () {
     }
         
     function AdicionarLocalStorage(){
+        
         let medicamentos = JSON.parse(localStorage.getItem('listaMedicamentos'));
         if(medicamentos === null){
-            medicamentos = [];
+            medicamentos = [
+                {
+                    'nome': nomeMedicamento, 'laboratorio': nomeLaboratorio, 'dosagem': dosagemMedicamento, 'descricao': descricaoMedicamento, 'preco': precoMedicamento, 'tipo': tipoMedicamento
+                }
+            ];
         }
         medicamentos.push(lista);
+        console.log(medicamentos);
         localStorage.setItem('listaMedicamentos', JSON.stringify(medicamentos));
         console.log(medicamentos);
     }
@@ -58,7 +64,7 @@ function CadastroMedicamento () {
   }
 
     return(
-        <MedContext.Provider value={{medicamentos, setMedicamentos}}>
+        // <MedContext.Provider value={{medicamentos, setMedicamentos}}>
         <div className="row col-10 p-3 m-2 ">
             <h4>Cadastro de Medicamento</h4>
             <form>
@@ -108,7 +114,7 @@ function CadastroMedicamento () {
             </div>
             </form>
         </div>
-        </MedContext.Provider>
+        // </MedContext.Provider>
     )
 
                 
