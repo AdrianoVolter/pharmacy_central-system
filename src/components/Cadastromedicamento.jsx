@@ -1,10 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import { useState ,useEffect } from 'react';
-// import UseContext from '../contexts/UseContext';
-// import { useContext } from 'react';
+//import UseContext from '../contexts/UseContext';
+import MedContext from '../contexts/MedContext';
+import { useContext } from 'react';
+
 
 function CadastroMedicamento () {
-     
+
   const [nomeMedicamento, setNomeMedicamento] = useState('');
   const [nomeLaboratorio, setNomeLaboratorio] = useState('');
   const [dosagemMedicamento, setDosagemMedicamento] = useState('');
@@ -12,6 +14,7 @@ function CadastroMedicamento () {
   const [precoMedicamento, setPrecoMedicamento] = useState('');
   const [tipoMedicamento, setTipoMedicamento] = useState('');
   const [listaMedicamentos, setListaMedicamentos] = useState([ ]);
+    const { medicamentos, setMedicamentos } = useContext(MedContext);
   
   const navigate = useNavigate();
 
@@ -26,15 +29,13 @@ function CadastroMedicamento () {
     } else {  
         listaMedicamentos.push(lista);
         setListaMedicamentos(listaMedicamentos);
-        console.log(listaMedicamentos);
+        
         limparCampos();
         alert('Medicamento cadastrado com sucesso');
         AdicionarLocalStorage();
         navigate('/medicamentos');
     }
         
-    //função adicionar no localstorage sem duplicar e atualizar a lista
-
     function AdicionarLocalStorage(){
         let medicamentos = JSON.parse(localStorage.getItem('listaMedicamentos'));
         if(medicamentos === null){
@@ -42,8 +43,8 @@ function CadastroMedicamento () {
         }
         medicamentos.push(lista);
         localStorage.setItem('listaMedicamentos', JSON.stringify(medicamentos));
+        console.log(medicamentos);
     }
-
   }
 
   function limparCampos(){
@@ -57,6 +58,7 @@ function CadastroMedicamento () {
   }
 
     return(
+        <MedContext.Provider value={{medicamentos, setMedicamentos}}>
         <div className="row col-10 p-3 m-2 ">
             <h4>Cadastro de Medicamento</h4>
             <form>
@@ -72,11 +74,11 @@ function CadastroMedicamento () {
             </div>
             <div className="row">
                     <div className="col-4">
-                        <label className='form-label'>Dosagem do medicamento</label>  <br/>
+                        <label className='form-label'>Dosagem do medicamento mg</label>  <br/>
                         <input onChange={(e)=>setDosagemMedicamento(e.target.value)} className="form-control" value={dosagemMedicamento} type="number" name="dosagemMedicamento" id="dosagemMedicamento" placeholder="Digite a dosagem do medicamento" required/> <br/>
                     </div>
                     <div className="col-4">
-                    <label className='form-label'>Preço unitário do medicamento</label>  <br/>
+                    <label className='form-label'>Preço unitário do medicamento R$</label>  <br/>
                     <input onChange={(e)=>setPrecoMedicamento(e.target.value)} className="form-control" value={precoMedicamento} type="number" name="precoMedicamento" id="precoMedicamento" placeholder="Digite o preço unitário do medicamento" required/> <br/>
                     </div>
             
@@ -106,7 +108,10 @@ function CadastroMedicamento () {
             </div>
             </form>
         </div>
+        </MedContext.Provider>
     )
+
+                
 
 }
 
