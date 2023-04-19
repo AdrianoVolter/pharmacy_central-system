@@ -1,10 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import { useState ,useEffect } from 'react';
+import { MedContext } from '../contexts/MedContext';
+import { useContext } from 'react';
 
 
 function CadastroMedicamento () {
 
     const navigate = useNavigate();
+    const { addMedicamento } = useContext(MedContext);
 
   const [nomeMedicamento, setNomeMedicamento] = useState('');
   const [nomeLaboratorio, setNomeLaboratorio] = useState('');
@@ -15,18 +18,18 @@ function CadastroMedicamento () {
   const [listaMedicamentos, setListaMedicamentos] = useState([ ]);
   
  function CadastrarMedicamento(){
- let lista = {'nome': nomeMedicamento, 'laboratorio': nomeLaboratorio, 'dosagem': dosagemMedicamento, 'descricao': descricaoMedicamento, 'preco': precoMedicamento, 'tipo': tipoMedicamento}
+ let objeto = {'nome': nomeMedicamento, 'laboratorio': nomeLaboratorio, 'dosagem': dosagemMedicamento, 'descricao': descricaoMedicamento, 'preco': precoMedicamento, 'tipo': tipoMedicamento}
     if( nomeMedicamento === '' || nomeLaboratorio === '' || dosagemMedicamento === '' || descricaoMedicamento === '' || precoMedicamento === '' || tipoMedicamento === ''){
         alert('Preencha todos os campos');
        return;
     } else {  
-        listaMedicamentos.push(lista);
+        listaMedicamentos.push(objeto);
         setListaMedicamentos(listaMedicamentos);
         
         limparCampos();
         alert('Medicamento cadastrado com sucesso');
         AdicionarLocalStorage();
-        addMedicamento(lista);
+        addMedicamento(objeto);
         navigate('/medicamentos');
     }
         
@@ -40,7 +43,7 @@ function CadastroMedicamento () {
                 }
             ];
         }
-        medicamentos.push(lista);
+        medicamentos.push(objeto);
         localStorage.setItem('listaMedicamentos', JSON.stringify(medicamentos));
         console.log(medicamentos);
     }
