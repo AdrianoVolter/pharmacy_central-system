@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FarmContext } from '../contexts/FarmContext';
+import { useContext } from 'react';
 
 function CadastroNova ( ){
 
     const navegar = useNavigate();
+    const { addFarmacia } = useContext(FarmContext);
 
     const [nome, setNome] = useState('');
     const [cnpj, setCnpj] = useState('');
@@ -18,39 +21,92 @@ function CadastroNova ( ){
     const [bairro, setBairro] = useState('');
     const [cidade, setCidade] = useState('');
     const [estado, setEstado] = useState('');
+    const [listaFarmacias, setListaFarmacias] = useState([]);
 
   const onBlur = (e) => {
+
     const { value } = e.target;
     const cep = value?.replace(/\D/g, '');
+
     if (cep?.length !== 8) {
         return;
     }
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
         .then((res) => res.json())
         .then((data) => {
+            setCep(data.cep);
             setLogradouro(data.logradouro);
             setBairro(data.bairro);
             setCidade(data.localidade);
             setEstado(data.uf);
             console.log(data);
+            if(data.erro === true){
+                alert('Cep não encontrado');
+            }
         });
     };
 
-
     const CadastrarFarmacia = (e) => {
         e.preventDefault();
-        if (nome === '' || cnpj === '' || nomeFantasia === '' || email === '' || telefone === '' || celular === ''  ) {
-            alert('Preencha todos os campos!!!!')
-        ;
-    } else {
-        
-        console.log('Dados salvos com sucesso!');
-        alert('Dados salvos com sucesso!')
-        navegar('/farmacias');
+        let objeto = {'nome': nome,'cnpj': cnpj, 'nomeFantasia': nomeFantasia,'email': email,'telefone': telefone,'celular': celular,'cep': cep, 'logradouro': logradouro, 'numero': numero,'complemento': complemento,'bairro': bairro,'cidade': cidade,'estado': estado }
+        if (nome === '' || cnpj === '' || nomeFantasia === '' || email === '' || telefone === '' || celular === '' || cep === '' || logradouro === '' || numero === '' || bairro === '' || cidade === '' || estado === '') {
+            alert('Preencha todos os campos');
+            console.log('Preencha todos os campos');
+        } else {
+            console.log(objeto);
+            listaFarmacias.push(objeto);
+            setListaFarmacias(listaFarmacias);
+            AdicionarLocalStorage();
+            addFarmacia(objeto);
+            
+            navegar('/farmacias');
+            console.log('Dados cadastrados com sucesso!');
         }
-
     }
-    const LimparFormulario = (e) => {
+
+    function AdicionarLocalStorage() {
+        let farmacia = JSON.parse(localStorage.getItem('farmacia')) 
+        if (farmacia === null) {
+            farmacia = [
+                {
+                    'nome': nome,
+                    'cnpj': cnpj,
+                    'nomeFantasia': nomeFantasia,
+                    'email': email,
+                    'telefone': telefone,
+                    'celular': celular,
+                    'cep': cep,
+                    'logradouro': logradouro,
+                    'numero': numero,
+                    'complemento': complemento,
+                    'bairro': bairro,
+                    'cidade': cidade,
+                    'estado': estado
+                }
+
+            ];
+
+        }
+        farmacia.push({
+            'nome': nome,
+            'cnpj': cnpj,
+            'nomeFantasia': nomeFantasia,
+            'email': email,
+            'telefone': telefone,
+            'celular': celular,
+            'cep': cep,
+            'logradouro': logradouro,
+            'numero': numero,
+            'complemento': complemento,
+            'bairro': bairro,
+            'cidade': cidade,
+            'estado': estado
+        });
+        localStorage.setItem('farmacia', JSON.stringify(farmacia));
+    
+    }
+
+     const LimparFormulario = (e) => {
         e.preventDefault();
         setNome('');
         setCnpj('');
@@ -125,8 +181,10 @@ function CadastroNova ( ){
                   <div className="input-group">
                       <input 
                         type="text" 
-                        onBlur={(e)=> onBlur(e)}
+                        onBlur={(e)=> onBlur
+                        (e)}
                         className="form-control" 
+                       
                         name="cep" 
                         id="cep" 
                         placeholder="Digite o CEP" 

@@ -26,15 +26,14 @@ function CadastroMedicamento () {
     } else {  
         listaMedicamentos.push(objeto);
         setListaMedicamentos(listaMedicamentos);
-        
         limparCampos();
         alert('Medicamento cadastrado com sucesso');
-        AdicionarLocalStorage();
+        AddLocalStorage();
         addMedicamento(objeto);
         navigate('/medicamentos');
     }
         
-    function AdicionarLocalStorage(){
+    function AddLocalStorage(){
         
         let medicamentos = JSON.parse(localStorage.getItem('listaMedicamentos'));
         if(medicamentos === null){
