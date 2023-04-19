@@ -7,9 +7,9 @@ import { useContext } from 'react';
 
 function ListaMedicamento() {
 
-    const { listaMedicamentos } = useContext(MedContext);
+    const { listaMedicamentos } = useContext(MedContext); // aqui eu estou pegando a lista de medicamentos do contexto
 
-    const [card, setCard] = useState(null);
+    const [card, setCard] = useState(null); // aqui eu estou criando um estado para controlar o modal
 
     const abrirModal = (index) => {
         setCard(index);
