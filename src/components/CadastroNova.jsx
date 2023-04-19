@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FarmContext } from '../contexts/FarmContext';
 import { useContext } from 'react';
+import { FarmProvider } from '../contexts/FarmContext';
 
 function CadastroNova ( ){
 
@@ -46,86 +47,53 @@ function CadastroNova ( ){
         });
     };
 
-    const CadastrarFarmacia = (e) => {
-        e.preventDefault();
+    const CadastrarFarmacia = () => {
         let objeto = {'nome': nome,'cnpj': cnpj, 'nomeFantasia': nomeFantasia,'email': email,'telefone': telefone,'celular': celular,'cep': cep, 'logradouro': logradouro, 'numero': numero,'complemento': complemento,'bairro': bairro,'cidade': cidade,'estado': estado }
         if (nome === '' || cnpj === '' || nomeFantasia === '' || email === '' || telefone === '' || celular === '' || cep === '' || logradouro === '' || numero === '' || bairro === '' || cidade === '' || estado === '') {
             alert('Preencha todos os campos');
-            console.log('Preencha todos os campos');
         } else {
-            console.log(objeto);
             listaFarmacias.push(objeto);
             setListaFarmacias(listaFarmacias);
             AdicionarLocalStorage();
             addFarmacia(objeto);
-            
             navegar('/farmacias');
+            console.log(listaFarmacias);
+
             console.log('Dados cadastrados com sucesso!');
         }
-    }
 
-    function AdicionarLocalStorage() {
+        function AdicionarLocalStorage() {
         let farmacia = JSON.parse(localStorage.getItem('farmacia')) 
         if (farmacia === null) {
-            farmacia = [
-                {
-                    'nome': nome,
-                    'cnpj': cnpj,
-                    'nomeFantasia': nomeFantasia,
-                    'email': email,
-                    'telefone': telefone,
-                    'celular': celular,
-                    'cep': cep,
-                    'logradouro': logradouro,
-                    'numero': numero,
-                    'complemento': complemento,
-                    'bairro': bairro,
-                    'cidade': cidade,
-                    'estado': estado
-                }
-
-            ];
-
-        }
-        farmacia.push({
-            'nome': nome,
-            'cnpj': cnpj,
-            'nomeFantasia': nomeFantasia,
-            'email': email,
-            'telefone': telefone,
-            'celular': celular,
-            'cep': cep,
-            'logradouro': logradouro,
-            'numero': numero,
-            'complemento': complemento,
-            'bairro': bairro,
-            'cidade': cidade,
-            'estado': estado
-        });
+            farmacia = [{'nome': nome,'cnpj': cnpj,'nomeFantasia': nomeFantasia,'email': email,'telefone': telefone,'celular': celular,'cep': cep,'logradouro': logradouro,'numero': numero,'complemento': complemento, 'bairro': bairro, 'cidade': cidade,'estado': estado}];}
+        farmacia.push(objeto)
         localStorage.setItem('farmacia', JSON.stringify(farmacia));
-    
+        }
     }
 
-     const LimparFormulario = (e) => {
-        e.preventDefault();
-        setNome('');
-        setCnpj('');
-        setNomeFantasia('');
-        setEmail('');
-        setTelefone('');
-        setCelular('');
-        setCep('');
-        setLogradouro('');
-        setNumero('');
-        setComplemento('');
-        setBairro('');
-        setCidade('');
-        setEstado('');
-        console.log('Dados limpos com sucesso!');
+const LimparFormulario = (e) => {
+    e.preventDefault();
+    setNome('');
+    setCnpj('');
+    setNomeFantasia('');
+    setEmail('');
+    setTelefone('');
+    setCelular('');
+    setCep('');
+    setLogradouro('');
+    setNumero('');
+    setComplemento('');
+    setBairro('');
+    setCidade('');
+    setEstado('');
+    console.log('Dados limpos com sucesso!');
     }
 
     
     return (
+
+        <FarmProvider>
+
         <div className="row col-10 p-3 m-2 ">
 
 
@@ -255,6 +223,8 @@ function CadastroNova ( ){
           </form>
       </div>
 
+      </FarmProvider>
+    
     )
 
 }

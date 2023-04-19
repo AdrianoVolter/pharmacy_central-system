@@ -34,7 +34,7 @@ return (
         <div className="row d-lg-flex">
             {listaMedicamentos.map((objeto, index) => (
 
-                <div className="col-4">
+                <div className="col-3">
 
                     <div className="col-12 card p-2 m-2" key={index}>
 
@@ -59,12 +59,14 @@ return (
                                     <Modal.Title>Detalhes do medicamento</Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
-                                    <p>Nome: {objeto.nome}</p>
-                                    <p>Descrição: {objeto.descricao}</p>
+                                <div className="row">
+                                    <h5>Nome: {objeto.nome}</h5>
                                     <p>Dosagem: {objeto.dosagem} mg</p>
                                     <p>Laboratório: {objeto.laboratorio}</p>
                                     <p>Preço: R$ {objeto.preco}</p>
                                     <p>Tipo: {objeto.tipo}</p>
+                                    <p><h5>Descrição:</h5> {objeto.descricao}</p>
+                                </div>
                                 </Modal.Body>
                                 <Modal.Footer>
                                     <Button variant="secondary" onClick={fecharModal}>

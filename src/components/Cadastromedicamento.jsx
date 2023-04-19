@@ -19,7 +19,6 @@ function CadastroMedicamento () {
   
  function CadastrarMedicamento(){
  let objeto = {'nome': nomeMedicamento, 'laboratorio': nomeLaboratorio, 'dosagem': dosagemMedicamento, 'descricao': descricaoMedicamento, 'preco': precoMedicamento, 'tipo': tipoMedicamento}
-    
  if( nomeMedicamento === '' || nomeLaboratorio === '' || dosagemMedicamento === '' || descricaoMedicamento === '' || precoMedicamento === '' || tipoMedicamento === ''){
         alert('Preencha todos os campos');
        return;
@@ -37,16 +36,14 @@ function CadastroMedicamento () {
         
         let medicamentos = JSON.parse(localStorage.getItem('listaMedicamentos'));
         if(medicamentos === null){
-            medicamentos = [
-                {
-                    'nome': nomeMedicamento, 'laboratorio': nomeLaboratorio, 'dosagem': dosagemMedicamento, 'descricao': descricaoMedicamento, 'preco': precoMedicamento, 'tipo': tipoMedicamento
-                }
-            ];
-        }
+            medicamentos = [ { 'nome': nomeMedicamento, 'laboratorio': nomeLaboratorio, 'dosagem': dosagemMedicamento, 'descricao': descricaoMedicamento, 'preco': precoMedicamento, 'tipo': tipoMedicamento} ];}
         medicamentos.push(objeto);
         localStorage.setItem('listaMedicamentos', JSON.stringify(medicamentos));
     }
   }
+
+
+
 
   function limparCampos(){
     setNomeMedicamento('');
@@ -86,8 +83,8 @@ function CadastroMedicamento () {
                         <label className='form-label'>Tipo do medicamento</label>  <br/>
                         <select onChange={(e)=>setTipoMedicamento(e.target.value)} className="form-control" value={tipoMedicamento} name="tipoMedicamento" id="tipoMedicamento">
                             <option value="#">Escolha o tipo</option>
-                            <option value="medicamentoControlado">Medicamento controlado</option>
-                            <option value="medicamentoComum">Medicamento comum</option>
+                            <option value="Medicamento Controlado">Medicamento controlado</option>
+                            <option value="Medicamento Comum">Medicamento comum</option>
                         </select> <br/>
                    </div>
                 </div>

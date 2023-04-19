@@ -7,7 +7,7 @@ function Medicamentos({
 }) {
 
     return (
-        <div className="container d-grid p-3">
+        <div className="container  p-3">
             <ListaMediacamento
                 
             />
