@@ -19,25 +19,6 @@ function CadastroNova ( ){
     const [cidade, setCidade] = useState('');
     const [estado, setEstado] = useState('');
 
-    const handleNome =(e) => {
-        setNome(e.target.value)
-        };
-    const handleCnpj =(e) => {
-        setCnpj(e.target.value)
-        };
-    const handleNomeFantasia =(e) => {
-        setNomeFantasia(e.target.value)
-        };
-    const handleEmail =(e) => {
-        setEmail(e.target.value)
-        };
-    const handleTelefone =(e) => {
-        setTelefone(e.target.value)
-        };
-    const handleCelular =(e) => {
-        setCelular(e.target.value)
-        };
-
   const onBlur = (e) => {
     const { value } = e.target;
     const cep = value?.replace(/\D/g, '');
@@ -56,54 +37,20 @@ function CadastroNova ( ){
     };
 
 
-
-    const handleLogradouro =(e) => {
-        setLogradouro(e.target.value)
-        };
-    const handleNumero =(e) => {
-        setNumero(e.target.value)
-        };
-    const handleComplemento =(e) => {
-        setComplemento(e.target.value)
-        };
-    const handleBairro =(e) => {
-        setBairro(e.target.value)
-        };
-    const handleCidade =(e) => {
-        setCidade(e.target.value)
-        };
-    const handleEstado =(e) => {
-        setEstado(e.target.value)
-        };
-
-
-
-    const handleCadastrar = (e) => {
+    const CadastrarFarmacia = (e) => {
         e.preventDefault();
         if (nome === '' || cnpj === '' || nomeFantasia === '' || email === '' || telefone === '' || celular === ''  ) {
             alert('Preencha todos os campos!!!!')
         ;
     } else {
-        localStorage.setItem('nome', nome);
-        localStorage.setItem('cnpj', cnpj);
-        localStorage.setItem('nomeFantasia', nomeFantasia);
-        localStorage.setItem('email', email);
-        localStorage.setItem('telefone', telefone);
-        localStorage.setItem('celular', celular);
-        localStorage.setItem('cep', cep);
-        localStorage.setItem('logradouro', logradouro);
-        localStorage.setItem('numero', numero);
-        localStorage.setItem('complemento', complemento);
-        localStorage.setItem('bairro', bairro);
-        localStorage.setItem('cidade', cidade);
-        localStorage.setItem('estado', estado); 
+        
         console.log('Dados salvos com sucesso!');
         alert('Dados salvos com sucesso!')
         navegar('/farmacias');
         }
 
     }
-    const handleLimpar = (e) => {
+    const LimparFormulario = (e) => {
         e.preventDefault();
         setNome('');
         setCnpj('');
@@ -122,33 +69,29 @@ function CadastroNova ( ){
     }
 
     
-
-
-
-
     return (
         <div className="row col-10 p-3 m-2 ">
 
 
             <h4>Cadastro de nova Farmácia</h4> <br />
-            <form action="" onSubmit={handleCadastrar}>
+            <form action="" onSubmit={CadastrarFarmacia}>
             <div className="row p-1">
                 <div className="col-4">
                     <label className="form-label" htmlFor="nome">Razão Social:</label>
                     <div className="input-group">
-                        <input type="text" onChange={handleNome} className="form-control" value={nome} name="nome" id="nome" placeholder="Digite a Razão Social" required />
+                        <input type="text" onChange={(e) =>setNome(e.target.value) } className="form-control" value={nome} name="nome" id="nome" placeholder="Digite a Razão Social" required />
                     </div>
                 </div>
                 <div className="col-4">
                     <label className="form-label" htmlFor="nome">CNPJ:</label>
                     <div className="input-group">
-                        <input type="text" onChange={handleCnpj} className="form-control" value={cnpj} name="cnpj" id="cnpj" placeholder="Digite o CNPJ" required />
+                        <input type="text" onChange={(e) =>setCnpj(e.target.value) } className="form-control" value={cnpj} name="cnpj" id="cnpj" placeholder="Digite o CNPJ" required />
                     </div>
                 </div>
                 <div className="col-4">
                     <label className="form-label" htmlFor="nome">Nome Fantasia:</label>
                     <div className="input-group">
-                        <input type="text" onChange={handleNomeFantasia} className="form-control" value={nomeFantasia} name="nomeFantasia" id="nomeFantasia" placeholder="Digite o Nome Fantasia" required />
+                        <input type="text" onChange={(e) =>setNomeFantasia(e.target.value) } className="form-control" value={nomeFantasia} name="nomeFantasia" id="nomeFantasia" placeholder="Digite o Nome Fantasia" required />
                     </div>
                 </div>
             </div>
@@ -156,26 +99,26 @@ function CadastroNova ( ){
                 <div className="col-4">
                     <label className="form-label" htmlFor="nome">E-mail:</label>
                     <div className="input-group">
-                        <input type="email" onChange={handleEmail} className="form-control" value={email} name="email" id="email" placeholder="Digite o E-mail" required />
+                        <input type="email" onChange={(e) =>setEmail(e.target.value) } className="form-control" value={email} name="email" id="email" placeholder="Digite o E-mail" required />
                     </div>
                 </div>
                 <div className="col-4">
                     <label className="form-label" htmlFor="nome">Telefone:</label>
                     <div className="input-group">
-                        <input type="text" onChange={handleTelefone} className="form-control" value={telefone} name="telefone" id="telefone" placeholder="Digite o Telefone" required />
+                        <input type="text" onChange={(e) =>setTelefone(e.target.value) } className="form-control" value={telefone} name="telefone" id="telefone" placeholder="Digite o Telefone" required />
                     </div>
                 </div>
                 <div className="col-4">
                     <label className="form-label" htmlFor="nome">Celular:</label>
                     <div className="input-group">
-                        <input type="text" onChange={handleCelular} className="form-control" value={celular} name="celular" id="celular" placeholder="Digite o Celular" required />
+                        <input type="text" onChange={(e) =>setCelular(e.target.value) } className="form-control" value={celular} name="celular" id="celular" placeholder="Digite o Celular" required />
                     </div>
                 </div>
             </div>
             <hr />
             </form>
             <h4>Endereço</h4>
-            <form action="" onSubmit={handleCadastrar}>
+            <form action="" onSubmit={CadastrarFarmacia}>
             <div className="row p-2">
             <div className="col-2">
                   <label className="form-label" htmlFor="cep">CEP:</label>
@@ -194,13 +137,13 @@ function CadastroNova ( ){
           <div className="col-8">
               <label className="form-label" htmlFor="logradouro">Logradouro:</label>
               <div className="input-group mb-3 col-">
-                  <input type="text" onChange={handleLogradouro} className="form-control" value={logradouro} name="logradouro" id="logradouro" placeholder="Logradouro" required />
+                  <input type="text" onChange={(e) =>setLogradouro(e.target.value) } className="form-control" value={logradouro} name="logradouro" id="logradouro" placeholder="Logradouro" required />
               </div>
           </div>
           <div className="col-2">
                   <label className="form-label" htmlFor="numero">Nº:</label>
                   <div className="input-group">
-                      <input type="text" onChange={handleNumero} className="form-control" value={numero} name="numero" id="numero" placeholder="Nº" required />
+                      <input type="text" onChange={(e) =>setNumero(e.target.value) } className="form-control" value={numero} name="numero" id="numero" placeholder="Nº" required />
                   </div>
               </div>
         </div> 
@@ -208,13 +151,13 @@ function CadastroNova ( ){
               <div className="col-6">
                   <label className="form-label" htmlFor="complemento">Complemento:</label>
                   <div className="input-group">
-                      <input type="text" onChange={handleComplemento} className="form-control" value={complemento} name="complemento" id="complemento" placeholder="Complemento" />
+                      <input type="text" onChange={(e) =>setComplemento(e.target.value) } className="form-control" value={complemento} name="complemento" id="complemento" placeholder="Complemento" />
                   </div>
               </div>
               <div className="col-6">
                   <label className="form-label" htmlFor="bairro">Bairro:</label>
                   <div className="input-group">
-                      <input type="text" onChange={handleBairro} className="form-control" value={bairro} name="bairro" id="bairro" placeholder="Digite o Bairro" required />
+                      <input type="text" onChange={(e) =>setBairro(e.target.value) } className="form-control" value={bairro} name="bairro" id="bairro" placeholder="Digite o Bairro" required />
                   </div>
               </div>
               
@@ -224,13 +167,13 @@ function CadastroNova ( ){
             <div className="col-7">
                   <label className="form-label" htmlFor="cidade">Cidade:</label>
                   <div className="input-group">
-                      <input type="text" onChange={handleCidade} className="form-control" value={cidade} name="cidade" id="cidade" placeholder="Digite a Cidade" required /> 
+                      <input type="text" onChange={(e) =>setCidade(e.target.value) } className="form-control" value={cidade} name="cidade" id="cidade" placeholder="Digite a Cidade" required /> 
                   </div>
               </div>
               <div className="col-5">
                   <label className="form-label" htmlFor="estado">Estado:</label>
                   <div className="input-group">
-                      <input type="text" onChange={handleEstado} className="form-control" value={estado} name="estado" id="estado" placeholder="Digite o Estado" required />
+                      <input type="text" onChange={(e) =>setEstado(e.target.value) } className="form-control" value={estado} name="estado" id="estado" placeholder="Digite o Estado" required />
                   </div>
             </div> 
           </div>
@@ -239,14 +182,14 @@ function CadastroNova ( ){
             <button 
                 className="btn btn-secondary col-2 m-1"
                 type="reset"
-                onClick={handleLimpar}
+                onClick={LimparFormulario}
                 >
             Limpar
             </button>
             <button 
                 className="btn btn-secondary col-2 m-1"
                 type="submit"
-                onClick={handleCadastrar}
+                onClick={CadastrarFarmacia}
                 >
             Salvar
             </button>
