@@ -1,11 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import { useState ,useEffect } from 'react';
-//import UseContext from '../contexts/UseContext';
-//import MedContext from '../contexts/MedContext';
-//import { useContext } from 'react';
+import { MedContext } from '../contexts/MedContext';
+import { useContext } from 'react';
 
 
 function CadastroMedicamento () {
+
+    const navigate = useNavigate();
+    const { addMedicamento } = useContext(MedContext);
 
   const [nomeMedicamento, setNomeMedicamento] = useState('');
   const [nomeLaboratorio, setNomeLaboratorio] = useState('');
@@ -14,25 +16,20 @@ function CadastroMedicamento () {
   const [precoMedicamento, setPrecoMedicamento] = useState('');
   const [tipoMedicamento, setTipoMedicamento] = useState('');
   const [listaMedicamentos, setListaMedicamentos] = useState([ ]);
-    //const { medicamentos, setMedicamentos } = useContext(MedContext);
   
-  const navigate = useNavigate();
-
  function CadastrarMedicamento(){
-   
-    
- let lista = {'nome': nomeMedicamento, 'laboratorio': nomeLaboratorio, 'dosagem': dosagemMedicamento, 'descricao': descricaoMedicamento, 'preco': precoMedicamento, 'tipo': tipoMedicamento}
-//validar campos
+ let objeto = {'nome': nomeMedicamento, 'laboratorio': nomeLaboratorio, 'dosagem': dosagemMedicamento, 'descricao': descricaoMedicamento, 'preco': precoMedicamento, 'tipo': tipoMedicamento}
     if( nomeMedicamento === '' || nomeLaboratorio === '' || dosagemMedicamento === '' || descricaoMedicamento === '' || precoMedicamento === '' || tipoMedicamento === ''){
         alert('Preencha todos os campos');
        return;
     } else {  
-        listaMedicamentos.push(lista);
+        listaMedicamentos.push(objeto);
         setListaMedicamentos(listaMedicamentos);
         
         limparCampos();
         alert('Medicamento cadastrado com sucesso');
         AdicionarLocalStorage();
+        addMedicamento(objeto);
         navigate('/medicamentos');
     }
         
@@ -46,15 +43,13 @@ function CadastroMedicamento () {
                 }
             ];
         }
-        medicamentos.push(lista);
-        console.log(medicamentos);
+        medicamentos.push(objeto);
         localStorage.setItem('listaMedicamentos', JSON.stringify(medicamentos));
         console.log(medicamentos);
     }
   }
 
   function limparCampos(){
-    
     setNomeMedicamento('');
     setNomeLaboratorio('');
     setDosagemMedicamento('');
@@ -62,9 +57,9 @@ function CadastroMedicamento () {
     setPrecoMedicamento('');
     setTipoMedicamento('');
   }
-
+  
     return(
-        // <MedContext.Provider value={{medicamentos, setMedicamentos}}>
+        
         <div className="row col-10 p-3 m-2 ">
             <h4>Cadastro de Medicamento</h4>
             <form>
@@ -114,7 +109,7 @@ function CadastroMedicamento () {
             </div>
             </form>
         </div>
-        // </MedContext.Provider>
+       
     )
 
                 
