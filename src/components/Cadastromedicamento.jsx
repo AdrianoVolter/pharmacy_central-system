@@ -19,7 +19,8 @@ function CadastroMedicamento () {
   
  function CadastrarMedicamento(){
  let objeto = {'nome': nomeMedicamento, 'laboratorio': nomeLaboratorio, 'dosagem': dosagemMedicamento, 'descricao': descricaoMedicamento, 'preco': precoMedicamento, 'tipo': tipoMedicamento}
-    if( nomeMedicamento === '' || nomeLaboratorio === '' || dosagemMedicamento === '' || descricaoMedicamento === '' || precoMedicamento === '' || tipoMedicamento === ''){
+    
+ if( nomeMedicamento === '' || nomeLaboratorio === '' || dosagemMedicamento === '' || descricaoMedicamento === '' || precoMedicamento === '' || tipoMedicamento === ''){
         alert('Preencha todos os campos');
        return;
     } else {  
@@ -45,7 +46,6 @@ function CadastroMedicamento () {
         }
         medicamentos.push(objeto);
         localStorage.setItem('listaMedicamentos', JSON.stringify(medicamentos));
-        console.log(medicamentos);
     }
   }
 
