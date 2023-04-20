@@ -33,7 +33,7 @@ function ListaDeFarmacias() {
                 <table className="table table-striped table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col" >Id</th>
                             <th scope="col">Nome da Farmácia</th>
                             <th scope="col">Bairro</th>
                             <th scope="col">Cidade</th>
@@ -43,7 +43,7 @@ function ListaDeFarmacias() {
                     <tbody>
                         {listaFarmacias.map((objeto, index) => (
                             <tr >
-                                <th scope="row">{index + 1}</th>
+                                <td><li scope="row" key={index}>{index + 1}</li></td>
                                 <td>{objeto.nome}</td>
                                 <td>{objeto.bairro}</td>
                                 <td>{objeto.cidade}</td>
@@ -59,17 +59,21 @@ function ListaDeFarmacias() {
                 <Modal.Title>Detalhes da Farmácia</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <div className="container">
+                <div className="container p-3 border">
                     <div className="row">
-                        <h5>{listaFarmacias[modal]?.nome}</h5>
-                        <p>{listaFarmacias[modal]?.cnpj}</p>
-                        <p>{listaFarmacias[modal]?.telefone}</p>
-                        <p>{listaFarmacias[modal]?.email}</p>
-                        <p>{listaFarmacias[modal]?.endereco}</p>
-                        <p>{listaFarmacias[modal]?.bairro}</p>
-                        <p>{listaFarmacias[modal]?.cidade}</p>
-                        <p>{listaFarmacias[modal]?.estado}</p>
-                        <p>{listaFarmacias[modal]?.cep}</p>
+                        <h5>Nome: {listaFarmacias[modal]?.nome}</h5>
+                        <h6>Nome Fantasia: {listaFarmacias[modal]?.nomeFantasia}</h6>
+                        <p>CNPJ: {listaFarmacias[modal]?.cnpj}</p>
+                        <h5>Contato</h5>
+                        <p>Telefone: {listaFarmacias[modal]?.telefone}</p>
+                        <p>E-mail: {listaFarmacias[modal]?.email}</p>
+                        <h5>Endereço</h5>
+                        <p>Logradouro: {listaFarmacias[modal]?.logradouro}</p>
+
+                        <p>Bairro: {listaFarmacias[modal]?.bairro}</p>
+                        <p>Cidade: {listaFarmacias[modal]?.cidade}</p>
+                        <p>Estado: {listaFarmacias[modal]?.estado}</p>
+                        <p>Cep:{listaFarmacias[modal]?.cep}</p>
                     </div>
                 </div>
             </Modal.Body>
@@ -79,32 +83,9 @@ function ListaDeFarmacias() {
                 </Button>
             </Modal.Footer>
         </Modal>
-        
-
         </div>
-       
-
-                            
-
-
     )
 }
-
-
-{/*             
-                <Modal show={true} onHide={fecharModal}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Detalhes da Farmácia</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                       
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={fecharModal}>
-                            Fechar
-                        </Button>
-                    </Modal.Footer>
-                </Modal>   */}
 
 
 

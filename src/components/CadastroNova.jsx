@@ -141,10 +141,10 @@ const LimparFormulario = (e) => {
             </div>
             <hr />
             </form>
-            <h4>Endereço</h4>
+            <h4 className='m-2'>Endereço</h4>
             <form action="" onSubmit={CadastrarFarmacia}>
             <div className="row p-2">
-            <div className="col-2">
+            <div className="col-3">
                   <label className="form-label" htmlFor="cep">CEP:</label>
                   <div className="input-group">
                       <input 
@@ -160,7 +160,7 @@ const LimparFormulario = (e) => {
                         />
                   </div>
               </div>
-          <div className="col-8">
+          <div className="col-7">
               <label className="form-label" htmlFor="logradouro">Logradouro:</label>
               <div className="input-group mb-3 col-">
                   <input type="text" onChange={(e) =>setLogradouro(e.target.value) } className="form-control" value={logradouro} name="logradouro" id="logradouro" placeholder="Logradouro" required />
@@ -203,22 +203,22 @@ const LimparFormulario = (e) => {
                   </div>
             </div> 
           </div>
-          <div className="row">
-            <span className="col"></span>
-            <button 
-                className="btn btn-secondary col-2 m-1"
-                type="reset"
-                onClick={LimparFormulario}
-                >
-            Limpar
-            </button>
-            <button 
-                className="btn btn-secondary col-2 m-1"
+          <div className="row p-2">
+             <button 
+                className="btn btn-secondary col-2 m-2"
                 type="submit"
                 onClick={CadastrarFarmacia}
                 >
-            Salvar
+                Cadastrar
             </button>
+            <button 
+                className="btn btn-secondary col-2 m-2"
+                type="reset"
+                onClick={LimparFormulario}
+                >
+                Limpar
+            </button>
+           
           </div>
           </form>
       </div>

@@ -59,7 +59,7 @@ return (
                                     <Modal.Title>Detalhes do medicamento</Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
-                                <div className="row">
+                                <div className="row border">
                                     <h5>Nome: {objeto.nome}</h5>
                                     <p>Dosagem: {objeto.dosagem} mg</p>
                                     <p>Laboratório: {objeto.laboratorio}</p>
