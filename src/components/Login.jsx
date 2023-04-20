@@ -1,6 +1,7 @@
 //apos validar os dados, o usuario é redirecionado para a pagina de farmacias
 import { useNavigate } from 'react-router-dom'
 import React, { useState } from 'react'
+import { BiLogIn } from 'react-icons/bi'
 
 
 function Login(){
@@ -71,9 +72,10 @@ const handleEnviar = (e) => {
                                 </div> <br />
                                 <button 
                                     type="submit" 
-                                    className="btn btn-primary"
+                                    className="btn btn-warning p-2 "
                                     >
-                                        Enviar
+                                      Fazer  Login 
+                                        <BiLogIn />
                                     </button>
                             </form>
                         </div>

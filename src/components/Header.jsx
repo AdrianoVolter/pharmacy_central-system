@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import {BiLogIn , BiInjection,BiStore} from 'react-icons/bi'
 
 function Header() {
 
@@ -21,7 +22,7 @@ function Header() {
 
   return (
     <div className="row d-flex">
-      <Navbar bg="secondary" variant="dark" className="p-1">
+      <Navbar bg="warning" variant="dark" className="p-1">
         <img 
             src="src/assets/favicon.ico" 
             alt="logo" 
@@ -29,30 +30,40 @@ function Header() {
             width="70"
             height="70"
             />
-        <Navbar.Brand href="#home">Phamacy Central System</Navbar.Brand>
+        <Navbar.Brand href="#home">
+          
+          <h5 id="h5">Phamacy Central System</h5></Navbar.Brand>
         <Nav className="my-2 my-sm-0">
           <Link 
-            className="btn" 
+            
+            className="btn p-3" 
             to="/"
-            >Login
+            > <BiLogIn 
+              className="link"
+              />{" "}
+              Login
+            
             </Link>
           {
             disabled ? null :
           <Link 
-            className="btn" 
+            className="btn p-3" 
             to="/farmacias"
             disabled={true}
-            >Farmácias
+            >
+              <BiStore className="link"/>{" "}
+              Farmácias
             </Link>
           }
           {
             disabled ? null :
           <Link 
-            className="btn" 
+            className="btn p-3" 
             to="/medicamentos"
             disabled={false}
-
-            >Medicamentos
+            >
+              <BiInjection className="link"/>{" "}
+              Medicamentos
             </Link>
           }
         </Nav>

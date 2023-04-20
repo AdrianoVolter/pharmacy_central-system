@@ -11,7 +11,7 @@ body{
   font-size: 1rem;
   font-weight: 400;
   color: #000;
-  background-color: #f9f9f9;
+  background-color: #fff;
   
 }
 
@@ -23,6 +23,33 @@ body .container{
   align-items: center;
 }
 
+.link{
+  text-decoration: none;
+  color: #c42a2a;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  /* margin-bottom: 1rem; */
+  
+}
+
+Nav .btn{
+  margin-left: 100px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000;
+ 
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin-bottom: rem;
+}
+
+Nav .btn:hover{
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
 
 .title{
   font-family: 'Roboto', sans-serif;
@@ -31,6 +58,55 @@ body .container{
   color: #000;
   margin-bottom: 1rem;
 
+}
+
+#h5{
+  align-self: start;
+  padding: 0.5rem;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  vertical-align: middle;
+  display: table-cell;
+
+
+  
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+.tr{
+  
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000;
+  background-color: #fff;
+  vertical-align: middle;
+    
+}
+
+.tr td{
+  
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: 300px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000;
+  background-color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+
+    
 }
 
 .login{
