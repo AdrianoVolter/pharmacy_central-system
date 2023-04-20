@@ -3,6 +3,9 @@ import { useState ,useEffect } from 'react';
 import { MedContext } from '../contexts/MedContext';
 import { useContext } from 'react';
 
+import { BiArchiveOut} from 'react-icons/bi'
+import {GrClearOption} from 'react-icons/gr'
+
 
 function CadastroMedicamento () {
 
@@ -97,11 +100,13 @@ function CadastroMedicamento () {
             </div>
             <div className="row">
 
-                <button className='btn btn-secondary col-2 m-2' onClick={(e) => {
+                <button className='btn btn-danger col-2 m-2' onClick={(e) => {
                     CadastrarMedicamento (e)
                 }
-                    } type="submit">Cadastrar</button>
-                <button className='btn btn-secondary col-2 m-2' onClick={limparCampos} type="reset">Limpar</button>
+                    } type="submit">Cadastrar
+                        <BiArchiveOut className='m-2'/>
+                    </button>
+                <button className='btn btn-warning col-2 m-2' onClick={limparCampos} type="reset">Limpar<GrClearOption className='m-1'/></button>
             </div>
             </form>
         </div>

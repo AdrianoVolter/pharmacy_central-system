@@ -5,6 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import { MedContext } from '../contexts/MedContext';
 import { useContext } from 'react';
 
+import { BiArchiveOut, BiCommentDetail} from 'react-icons/bi'
+import {BsX} from 'react-icons/bs'
+//import {GiMedicines} from 'react-icons/gi'
+
 function ListaMedicamento() {
 
     const { listaMedicamentos } = useContext(MedContext); // aqui eu estou pegando a lista de medicamentos do contexto
@@ -30,7 +34,10 @@ return (
     <div className="col-12 container-fluid  p-3  ">
 
 
-        <h4>Lista de Medicamentos</h4> <input className="  col btn btn-secondary border p-2 m-2" type="button" value="Cadatrar medicamento " onClick={(e) => handleCdMed()} />
+        <h4>Lista de Medicamentos</h4> <button className="  col btn btn-light border p-2 m-2" type="button" value="Cadatrar medicamento " onClick={(e) => handleCdMed()} > 
+        Cadastrar medicamento
+        <BiArchiveOut className=" m-2"/>
+        </button>
         <div className="row d-lg-flex">
             {listaMedicamentos.map((objeto, index) => (
 
@@ -42,7 +49,7 @@ return (
                         <div className=" card-body">
                         <div className="">
                         <div className="row">
-                            <h6 className="card-title  col-6">{objeto.nome}</h6>
+                            <h6 className="card-title  col-6 ">{objeto.nome}</h6>
                             {/* <p className="card-text">{objeto.descricao}</p> */}
                             <p className="card-text col-6">{objeto.dosagem} mg</p>
                             {/* <p className="card-text">{objeto.laboratorio}</p> */}
@@ -51,15 +58,17 @@ return (
                         </div> 
 
                         </div>
-                            <Button variant="primary" onClick={() => abrirModal(index)
+                            <Button variant="warning" onClick={() => abrirModal(index)
 
-                            }>Detalhes</Button>
+                            }>Detalhes <BiCommentDetail className="m-2"/>
+                            </Button>
                             <Modal show={card === index} onHide={fecharModal}>
                                 <Modal.Header closeButton>
-                                    <Modal.Title>Detalhes do medicamento</Modal.Title>
+                                    <Modal.Title> <BiCommentDetail className="m-2"/>
+                                        Detalhes do medicamento</Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
-                                <div className="row border">
+                                <div className="row border bg-warning">
                                     <h5>Nome: {objeto.nome}</h5>
                                     <p>Dosagem: {objeto.dosagem} mg</p>
                                     <p>Laboratório: {objeto.laboratorio}</p>
@@ -70,7 +79,7 @@ return (
                                 </Modal.Body>
                                 <Modal.Footer>
                                     <Button variant="secondary" onClick={fecharModal}>
-                                        Fechar
+                                        Fechar  <BsX className="m-2"/>
                                     </Button>
                                 </Modal.Footer>
                             </Modal>

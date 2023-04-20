@@ -4,6 +4,9 @@ import { FarmContext } from '../contexts/FarmContext';
 import { useContext } from 'react';
 import { FarmProvider } from '../contexts/FarmContext';
 
+import { BiArchiveOut} from 'react-icons/bi'
+import {GrClearOption} from 'react-icons/gr'
+
 function CadastroNova ( ){
 
     const navegar = useNavigate();
@@ -205,18 +208,20 @@ const LimparFormulario = (e) => {
           </div>
           <div className="row p-2">
              <button 
-                className="btn btn-secondary col-2 m-2"
+                className="btn btn-danger col-2 m-2"
                 type="submit"
                 onClick={CadastrarFarmacia}
                 >
                 Cadastrar
+                <BiArchiveOut className="m-2" />
             </button>
             <button 
-                className="btn btn-secondary col-2 m-2"
+                className="btn btn-warning col-2 m-2"
                 type="reset"
                 onClick={LimparFormulario}
                 >
                 Limpar
+                <GrClearOption className="m-2" />
             </button>
            
           </div>
