@@ -11,7 +11,8 @@ function Header() {
   const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
-    if (location.pathname === "/") {
+    if (location.pathname === "/"
+    || location.pathname === "/cadastro") {
       setDisabled(true);
     } else {
       setDisabled(false);
@@ -32,7 +33,7 @@ function Header() {
             />
         <Navbar.Brand href="#home">
           
-          <h5 id="h5">Phamacy Central System</h5></Navbar.Brand>
+          <h5 id="h5" >Phamacy Central System</h5></Navbar.Brand>
         <Nav className="my-2 my-sm-0">
           <Link 
             

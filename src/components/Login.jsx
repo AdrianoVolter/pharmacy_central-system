@@ -1,7 +1,9 @@
 //apos validar os dados, o usuario é redirecionado para a pagina de farmacias
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import React, { useState } from 'react'
 import { BiLogIn } from 'react-icons/bi'
+import { BiArchiveOut } from "react-icons/bi";
+import { GrClearOption } from "react-icons/gr";
 
 
 function Login(){
@@ -69,20 +71,33 @@ const handleEnviar = (e) => {
                                         minLength={8}
                                         required
                                         />
-                                </div> <br />
+                                </div> 
+
+                            <div className="row p-2 ">
                                 <button 
                                     type="submit" 
-                                    className="btn btn-warning p-2 "
+                                    className="col-3 btn btn-warning p-2 m-2 "
                                     >
                                       Fazer  Login 
                                         <BiLogIn />
-                                    </button>
+                                </button>
+                             
+                                <Link className='col-5 btn btn-danger m-2' to="/cadastro"> 
+                                
+                                Faça seu cadastro <BiArchiveOut />
+                                
+                                </Link>
+                                 
+                             </div>
                             </form>
-                        </div>
+
+
+                        
+
+                         </div>
                     </div>
                 </div>
             </div>
-            
         </div>
     )
 }

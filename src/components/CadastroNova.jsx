@@ -73,6 +73,7 @@ function CadastroNova ( ){
         localStorage.setItem('farmacia', JSON.stringify(farmacia));
         }
     }
+//
 
 const LimparFormulario = (e) => {
     e.preventDefault();

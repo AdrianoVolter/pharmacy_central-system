@@ -2,6 +2,7 @@ import React, { Children } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import Inicio from './pages/Inicio'
+import FormUsuario from './pages/FormUsuario'
 import Medicamentos from './pages/Medicamentos'
 import Farmacias from './pages/Farmacias'
 import FormularioFarm from './pages/FormularioFarm'
@@ -25,6 +26,12 @@ const rotas = createBrowserRouter(
         path: '/',
         element: <Inicio />
       },
+
+      {
+        path: '/cadastro',
+        element: <FormUsuario />
+      },
+
       {
         path: '/medicamentos',
         element: <Medicamentos />

@@ -28,6 +28,19 @@ function ListaDeFarmacias() {
         navigate('/formulario')
     }
 
+    //buscar farmacia no local storage e exibir na tela
+    
+
+    const mesclar = (listaFarmacias) => {
+        const lista = JSON.parse(localStorage.getItem('farmacias'))
+        if (lista) {
+            listaFarmacias = listaFarmacias.concat(lista)
+        }
+        return listaFarmacias
+    }
+
+   
+
     return (
 
         // <FarmProvider>
