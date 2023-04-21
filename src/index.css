@@ -51,6 +51,11 @@ Nav .btn:hover{
   border: 1px solid #ccc;
 }
 
+#img {
+ 
+  margin-left: 15px;
+}
+
 .title{
   font-family: 'Roboto', sans-serif;
   font-size: 2rem;

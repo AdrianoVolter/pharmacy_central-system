@@ -39,7 +39,7 @@ return (
         <BiArchiveOut className=" m-2"/>
         </button>
         <div className="row d-lg-flex">
-            {listaMedicamentos.map((objeto, index) => (
+            {listaMedicamentos.map((medicamento, index) => (
 
                 <div className="col-3">
 
@@ -49,9 +49,9 @@ return (
                         <div className=" card-body">
                         <div className="">
                         <div className="row">
-                            <h6 className="card-title  col-6 ">{objeto.nome}</h6>
+                            <h6 className="card-title  col-6 ">{medicamento.nome}</h6>
                             {/* <p className="card-text">{objeto.descricao}</p> */}
-                            <p className="card-text col-6">{objeto.dosagem} mg</p>
+                            <p className="card-text col-6">{medicamento.dosagem} mg</p>
                             {/* <p className="card-text">{objeto.laboratorio}</p> */}
                             {/* <p className="card-text">{objeto.preco}</p> */}
                             {/* <p className="card-text">{objeto.tipo}</p> */}
@@ -69,12 +69,12 @@ return (
                                 </Modal.Header>
                                 <Modal.Body>
                                 <div className="row border bg-warning">
-                                    <h5>Nome: {objeto.nome}</h5>
-                                    <p>Dosagem: {objeto.dosagem} mg</p>
-                                    <p>Laboratório: {objeto.laboratorio}</p>
-                                    <p>Preço: R$ {objeto.preco}</p>
-                                    <p>Tipo: {objeto.tipo}</p>
-                                    <p><h5>Descrição:</h5> {objeto.descricao}</p>
+                                    <h5>Nome: {medicamento.nome}</h5>
+                                    <p>Dosagem: {medicamento.dosagem} mg</p>
+                                    <p>Laboratório: {medicamento.laboratorio}</p>
+                                    <p>Preço: R$ {medicamento.preco}</p>
+                                    <p>Tipo: {medicamento.tipo}</p>
+                                    <p><h5>Descrição:</h5> {medicamento.descricao}</p>
                                 </div>
                                 </Modal.Body>
                                 <Modal.Footer>

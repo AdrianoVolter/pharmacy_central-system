@@ -12,7 +12,10 @@ import {BsWhatsapp} from 'react-icons/bs'
 
 function ListaDeFarmacias() {
 
+    
+
     const { listaFarmacias } = useContext(FarmContext)
+
     const [modal, setModal] = useState(null) // aqui eu estou criando um estado para controlar o modal
  
     const abrirModal = (index) => {
@@ -27,19 +30,6 @@ function ListaDeFarmacias() {
     function handleCdFarm() {
         navigate('/formulario')
     }
-
-    //buscar farmacia no local storage e exibir na tela
-    
-
-    const mesclar = (listaFarmacias) => {
-        const lista = JSON.parse(localStorage.getItem('farmacias'))
-        if (lista) {
-            listaFarmacias = listaFarmacias.concat(lista)
-        }
-        return listaFarmacias
-    }
-
-   
 
     return (
 
@@ -62,13 +52,13 @@ function ListaDeFarmacias() {
                         </tr>
                     </thead>
                     <tbody>
-                        {listaFarmacias.map((objeto, index) => (
+                        {listaFarmacias.map((farmacia, index) => (
                             <tr className="tr">
                                 <td><li scope="row" className="list-group-item" key={index}>{index + 1}</li></td>
-                                <td>{objeto.nome}</td>
-                                <td>{objeto.bairro}</td>
-                                <td>{objeto.cidade}</td>
-                                <td>{objeto.estado}</td>
+                                <td>{farmacia.nome}</td>
+                                <td>{farmacia.bairro}</td>
+                                <td>{farmacia.cidade}</td>
+                                <td>{farmacia.estado}</td>
                                 <td><Button variant="primary" className="col btn btn-warning p-2 m-2" onClick={() => abrirModal(index)}>Detalhes{" "}<BiCommentDetail className=""/></Button></td>
                             </tr>
                         ))}

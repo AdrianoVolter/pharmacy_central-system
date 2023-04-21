@@ -26,6 +26,7 @@ function Header() {
       <Navbar bg="warning" variant="dark" className="p-1">
         <img 
             src="src/assets/favicon.ico" 
+            id="img"
             alt="logo" 
             className="p-3" 
             width="70"

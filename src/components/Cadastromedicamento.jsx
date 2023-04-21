@@ -21,28 +21,28 @@ function CadastroMedicamento () {
   const [listaMedicamentos, setListaMedicamentos] = useState([ ]);
   
  function CadastrarMedicamento(){
- let objeto = {'nome': nomeMedicamento, 'laboratorio': nomeLaboratorio, 'dosagem': dosagemMedicamento, 'descricao': descricaoMedicamento, 'preco': precoMedicamento, 'tipo': tipoMedicamento}
+ let medicamento = {'nome': nomeMedicamento, 'laboratorio': nomeLaboratorio, 'dosagem': dosagemMedicamento, 'descricao': descricaoMedicamento, 'preco': precoMedicamento, 'tipo': tipoMedicamento}
  if( nomeMedicamento === '' || nomeLaboratorio === '' || dosagemMedicamento === '' || descricaoMedicamento === '' || precoMedicamento === '' || tipoMedicamento === ''){
         alert('Preencha todos os campos');
        return;
     } else {  
-        listaMedicamentos.push(objeto);
-        setListaMedicamentos(listaMedicamentos);
+        const novaListaMedicamentos = [...listaMedicamentos, medicamento];
+        setListaMedicamentos(novaListaMedicamentos);
+        localStorage.setItem('listaMedicamentos', JSON.stringify(novaListaMedicamentos));
         limparCampos();
         alert('Medicamento cadastrado com sucesso');
-        AddLocalStorage();
-        addMedicamento(objeto);
+        addMedicamento(medicamento);
         navigate('/medicamentos');
     }
         
-    function AddLocalStorage(){
+    // function AddLocalStorage(){
         
-        let medicamentos = JSON.parse(localStorage.getItem('listaMedicamentos'));
-        if(medicamentos === null){
-            medicamentos = [ { 'nome': nomeMedicamento, 'laboratorio': nomeLaboratorio, 'dosagem': dosagemMedicamento, 'descricao': descricaoMedicamento, 'preco': precoMedicamento, 'tipo': tipoMedicamento} ];}
-        medicamentos.push(objeto);
-        localStorage.setItem('listaMedicamentos', JSON.stringify(medicamentos));
-    }
+    //     let medicamentos = JSON.parse(localStorage.getItem('listaMedicamentos'));
+    //     if(medicamentos === null){
+    //         medicamentos = [ { 'nome': nomeMedicamento, 'laboratorio': nomeLaboratorio, 'dosagem': dosagemMedicamento, 'descricao': descricaoMedicamento, 'preco': precoMedicamento, 'tipo': tipoMedicamento} ];}
+    //     medicamentos.push(objeto);
+    //     localStorage.setItem('listaMedicamentos', JSON.stringify(medicamentos));
+    // }
   }
 
 

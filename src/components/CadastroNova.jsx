@@ -10,7 +10,8 @@ import {GrClearOption} from 'react-icons/gr'
 function CadastroNova ( ){
 
     const navegar = useNavigate();
-    const { addFarmacia } = useContext(FarmContext);
+
+    const { addFarmacia  } = useContext(FarmContext);
 
     const [nome, setNome] = useState('');
     const [cnpj, setCnpj] = useState('');
@@ -51,27 +52,20 @@ function CadastroNova ( ){
     };
 
     const CadastrarFarmacia = () => {
-        let objeto = {'nome': nome,'cnpj': cnpj, 'nomeFantasia': nomeFantasia,'email': email,'telefone': telefone,'celular': celular,'cep': cep, 'logradouro': logradouro, 'numero': numero,'complemento': complemento,'bairro': bairro,'cidade': cidade,'estado': estado }
+        let farmacia = {'nome': nome,'cnpj': cnpj, 'nomeFantasia': nomeFantasia,'email': email,'telefone': telefone,'celular': celular,'cep': cep, 'logradouro': logradouro, 'numero': numero,'complemento': complemento,'bairro': bairro,'cidade': cidade,'estado': estado }
         if (nome === '' || cnpj === '' || nomeFantasia === '' || email === '' || telefone === '' || celular === '' || cep === '' || logradouro === '' || numero === '' || bairro === '' || cidade === '' || estado === '') {
             alert('Preencha todos os campos');
         } else {
-            listaFarmacias.push(objeto);
-            setListaFarmacias(listaFarmacias);
-            AdicionarLocalStorage();
-            addFarmacia(objeto);
+            const novaListaFarmacias = [...listaFarmacias, farmacia];
+            setListaFarmacias(novaListaFarmacias);
+            localStorage.setItem('listaFarmacias', JSON.stringify(novaListaFarmacias));
+            addFarmacia(farmacia);
+            console.log(farmacia);
             navegar('/farmacias');
-            console.log(listaFarmacias);
-
-            console.log('Dados cadastrados com sucesso!');
+            console.log('Farmácia cadastrada com sucesso!');
+           
         }
 
-        function AdicionarLocalStorage() {
-        let farmacia = JSON.parse(localStorage.getItem('farmacia')) 
-        if (farmacia === null) {
-            farmacia = [{'nome': nome,'cnpj': cnpj,'nomeFantasia': nomeFantasia,'email': email,'telefone': telefone,'celular': celular,'cep': cep,'logradouro': logradouro,'numero': numero,'complemento': complemento, 'bairro': bairro, 'cidade': cidade,'estado': estado}];}
-        farmacia.push(objeto)
-        localStorage.setItem('farmacia', JSON.stringify(farmacia));
-        }
     }
 //
 
@@ -236,3 +230,15 @@ const LimparFormulario = (e) => {
 }
 
 export default CadastroNova
+
+
+
+
+
+        // function AdicionarLocalStorage() {
+        // let farmacia = JSON.parse(localStorage.getItem('farmacia')) 
+        // if (farmacia === null) {
+        //     farmacia = [{'nome': nome,'cnpj': cnpj,'nomeFantasia': nomeFantasia,'email': email,'telefone': telefone,'celular': celular,'cep': cep,'logradouro': logradouro,'numero': numero,'complemento': complemento, 'bairro': bairro, 'cidade': cidade,'estado': estado}];}
+        // farmacia.push(objeto)
+        // //localStorage.setItem('farmacia', JSON.stringify(farmacia));
+        // }
