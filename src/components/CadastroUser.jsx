@@ -49,22 +49,22 @@ const handleEnviar = (e) => {
 
     if (nome === '' || email === '' || telefone === ''|| celular === '' || cpf === '' || senha === '' || confirmarSenha === '') {
         alert('Preencha todos os campos CORRETAMENTE!')
-        return;
+        
     }else if (senha !== confirmarSenha ) {
         alert('As senhas não conferem!')
-        return;
+        
     }else if (senha.length < 8) {
         alert('A senha deve conter no mínimo 8 caracteres!')
-        return;
+       
     }else if (cpf.length < 11) {
         alert('O CPF deve conter 11 caracteres!')
-        return;
+        
     }else if (telefone.length < 10) {
         alert('O telefone deve conter 10 caracteres!')
-        return;
+        
     }else if (celular.length < 11) {
         alert('O celular deve conter 11 caracteres!')
-        return;
+        
         
     }else{
     e.preventDefault()

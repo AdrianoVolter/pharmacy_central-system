@@ -35,18 +35,7 @@ function CadastroMedicamento () {
         navigate('/medicamentos');
     }
         
-    // function AddLocalStorage(){
-        
-    //     let medicamentos = JSON.parse(localStorage.getItem('listaMedicamentos'));
-    //     if(medicamentos === null){
-    //         medicamentos = [ { 'nome': nomeMedicamento, 'laboratorio': nomeLaboratorio, 'dosagem': dosagemMedicamento, 'descricao': descricaoMedicamento, 'preco': precoMedicamento, 'tipo': tipoMedicamento} ];}
-    //     medicamentos.push(objeto);
-    //     localStorage.setItem('listaMedicamentos', JSON.stringify(medicamentos));
-    // }
   }
-
-
-
 
   function limparCampos(){
     setNomeMedicamento('');

@@ -43,22 +43,17 @@ return (
 
                 <div className="col-3">
 
-                    <div className="col-12 card p-2 m-2" key={index}>
+                    <div className="col-12 card p-3 m-2" key={index}>
 
-                        <img src="src/assets/garrafa-e-caixa-de-medicamentos-700-93492520.jpg" className="col-12 card-img-top border" alt="..." />
-                        <div className=" card-body">
+                        <img src="src/assets/garrafa-e-caixa-de-medicamentos-700-93492520.jpg" className="col-12 card-img-top  p-2" alt="..." />
+                        <div className=" card-body p-2"> <br />
                         <div className="">
                         <div className="row">
                             <h6 className="card-title  col-6 ">{medicamento.nome}</h6>
-                            {/* <p className="card-text">{objeto.descricao}</p> */}
-                            <p className="card-text col-6">{medicamento.dosagem} mg</p>
-                            {/* <p className="card-text">{objeto.laboratorio}</p> */}
-                            {/* <p className="card-text">{objeto.preco}</p> */}
-                            {/* <p className="card-text">{objeto.tipo}</p> */}
-                        </div> 
-
+                            <p className="card-text col-6"><strong>{medicamento.dosagem}</strong> mg</p>
+                        </div> <br />
                         </div>
-                            <Button variant="warning" onClick={() => abrirModal(index)
+                            <Button className='' variant="warning" onClick={() => abrirModal(index)
 
                             }>Detalhes <BiCommentDetail className="m-2"/>
                             </Button>
@@ -68,13 +63,24 @@ return (
                                         Detalhes do medicamento</Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
-                                <div className="row border bg-warning">
-                                    <h5>Nome: {medicamento.nome}</h5>
-                                    <p>Dosagem: {medicamento.dosagem} mg</p>
-                                    <p>Laboratório: {medicamento.laboratorio}</p>
-                                    <p>Preço: R$ {medicamento.preco}</p>
-                                    <p>Tipo: {medicamento.tipo}</p>
+                                <div className="row col-12 border bg-warning">
+                                      <h5>Nome: {medicamento.nome}</h5>
+                                     <div className="col-6">
+                                          <p><strong>Laboratório:</strong> {medicamento.laboratorio}</p>
+                                          
+                                    </div> 
+                                    <div className="col-6">
+                                         <p><strong>Dosagem:</strong> {medicamento.dosagem} mg</p>
+                                        </div>  
+                                    <div className="col-6">
+                                         <p><strong>Preço:</strong> R$ {medicamento.preco}</p>
+                                    </div>
+                                   <div className="col-6">
+                                     <p><strong>Tipo:</strong> {medicamento.tipo}</p>
+                                   </div>
+                                    <div className="col-12">
                                     <p><h5>Descrição:</h5> {medicamento.descricao}</p>
+                                    </div>
                                 </div>
                                 </Modal.Body>
                                 <Modal.Footer>

@@ -114,6 +114,13 @@ Nav .btn:hover{
     
 }
 
+.tr {
+  
+  text-align: center;
+  
+}
+
+
 .login{
   margin-left: 300px;
   cursor: pointer;

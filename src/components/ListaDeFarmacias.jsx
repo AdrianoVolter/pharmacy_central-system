@@ -70,23 +70,67 @@ function ListaDeFarmacias() {
                 <Modal.Title><BiCommentDetail className="m-2"/>Detalhes da Farmácia</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <div className="container p-3 border bg-warning">
+                <div className="p-3 border bg-warning">
                     <div className="row">
-                        <h5>Nome: {listaFarmacias[modal]?.nome}</h5>
-                        <h6>Nome Fantasia: {listaFarmacias[modal]?.nomeFantasia}</h6>
-                        <p>CNPJ: {listaFarmacias[modal]?.cnpj}</p>
-                        <h5>Contato</h5>
-                        <p><BsTelephoneInbound/>{" "}Telefone : {listaFarmacias[modal]?.telefone}</p>
-                        <p><BsWhatsapp/>{" "}Celular: {listaFarmacias[modal]?.celular}</p>
-                        <p><MdAlternateEmail/>{" "}E-mail: {listaFarmacias[modal]?.email}</p>
+                             <h5>Nome: {listaFarmacias[modal]?.nome}</h5> <br />
+                        <div className="row">
+                             <div className="col-6">
+                                 <h6>Nome Fantasia: {listaFarmacias[modal]?.nomeFantasia}</h6> 
+                             </div>
+                            <div className="col-6">
+                                 <p><strong>CNPJ:</strong> {listaFarmacias[modal]?.cnpj}</p>
+                            </div>
+                        </div>
+                            <h5>Contato</h5>
+                            <div className="row">
+                                <div className="col-6">
+                                    <p><strong><BsTelephoneInbound/>{" "}Telefone :</strong> {listaFarmacias[modal]?.telefone}</p>
+                                </div>
+                                 <div className="col-6">
+                                     <p><strong><BsWhatsapp/>{" "}Celular:</strong> {listaFarmacias[modal]?.celular}</p>
+                                 </div>
+                               
+                            </div>
+                           
+                            <p><strong><MdAlternateEmail/>{" "}E-mail:</strong> {listaFarmacias[modal]?.email}</p>
+                        
+                            <h5>Endereço</h5>
+                            <div className="row">
+                                <div className="col-6">
+                                     <p><strong>Logradouro:</strong> {listaFarmacias[modal]?.logradouro}</p>
+                                </div>
+                                <div className="col-6">
+                                     <p><strong>Numero:</strong> {listaFarmacias[modal]?.numero}</p>
+                                </div>
+                                
+                           
+                            </div>
+                            <div className="row">
+                                <div className="col-6">
+                                    <p><strong>Bairro:</strong> {listaFarmacias[modal]?.bairro}</p>
+                                </div>
+                                <div className="col-6">
+                                    <p><strong>Complemento:</strong> {listaFarmacias[modal]?.complemento}</p>
+                                </div>
+                            </div>
+                            
+                            
+                            <div className="row">
+                                <div className="col-4">
+                                      <p><strong>Cidade:</strong> {listaFarmacias[modal]?.cidade}</p>
+                                </div>
+                                <div className="col-4">
+                                     <p><strong>Estado:</strong> {listaFarmacias[modal]?.estado}</p>
+                                </div>
+                                <div className="col-4">
+                                     <p><strong>Cep:</strong> {listaFarmacias[modal]?.cep}</p>
+                                </div>
+                            </div>
+                          
+                           
+                           
+                      
                        
-                        <h5>Endereço</h5>
-                        <p>Logradouro: {listaFarmacias[modal]?.logradouro}</p>
-
-                        <p>Bairro: {listaFarmacias[modal]?.bairro}</p>
-                        <p>Cidade: {listaFarmacias[modal]?.cidade}</p>
-                        <p>Estado: {listaFarmacias[modal]?.estado}</p>
-                        <p>Cep:{listaFarmacias[modal]?.cep}</p>
                     </div>
                 </div>
             </Modal.Body>
