@@ -90,7 +90,7 @@ const LimparFormulario = (e) => {
     
     return (
 
-        <FarmProvider>
+      
 
         <div className="row col-10 p-3 m-2 ">
 
@@ -223,7 +223,7 @@ const LimparFormulario = (e) => {
           </form>
       </div>
 
-      </FarmProvider>
+      
     
     )
 
