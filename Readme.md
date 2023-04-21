@@ -1,44 +1,106 @@
 ****
 
-## Projeto modulo 1 
+## Projeto modulo 1 Curso FullStack -Senai/LAB365-
 
+***
+# Pharmacy Central System
 
+<h3>
+Este é um projeto em React.js com Vite, que tem como objetivo servir como um sistema para gerenciar farmácias e medicamentos.
+</h3>
+
+****
+## Funcionalidades do sistema
+<ul>
+    <li>Página de login</li>
+     <li>Página de cadastro de usuário</li>
+      <li>Página que lista as farmácias</li>
+       <li>Página de cadastro de farmácias</li>
+       <li>Página que lista todos os medicamentos</li>
+        <li>Página cadastro de medicamentos</li>
+</ul>
+
+ ### Para instalação é necessário :
+
+ #### Clone o repositório do projeto 
+ 
+ ```bash
+    git clone https://github.com/AdrianoVolter/pharmacy_central-system.git
+ ```
+ ###
+
+Instale npm
+
+```bash
+  npm install 
+```
+Inicie o servidor de desenvolvimento com o comando:
+```bash
+    npm run dev
+```
 
 ****
 
-### Iniciando
+## Tecnologias utilizadas
 
 
-### Pagina inicial
+<p align="">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=react,vite,bootstrap,javascript,css,html,git,github,vscode" />
+  </a>
+</p>
+
+### Dependencias usando Npm
+<ul>
+    <li>React-DOM</li>
+    <li>React-Bootstrap</li>
+    <li>React-Icons</li>
+    <li>React-Router-DOM</li>
+</ul>
+
+## Versionamento 
+
+<ul>
+<li>Git Flow</li>
+</ul>
+
+## Detlhes das páginas:
 
 
-![alt text](src/assets/login.png)
+![alt text](src/assets/loginInicio.png)
 
+### Pagina de cadastro de usuário:
+
+![alt text](src/assets/cadastro_user.png)
 
 ### Pgina Lista de Farmácias :
 
-![alt text](src/assets/127.0.0.1_5181_farmacias.png)
+![alt text](src/assets/farmacias2.png)
 
 
 ### Modal que exibe informações da farmácia :
 
-![alt text](src/assets/modalFarm.png)
+![alt text](src/assets/modalfarmacias.png)
 
 ### Pagina cadastrar uma farmácia ao clicar no botão:
 
-![alt text](src/assets/cadastroFarm.png)
+![alt text](src/assets/form-farm.png)
 
 ### Pagina que lista os medicamentos :
 
-![alt text](src/assets/medList.png)
+![alt text](src/assets/medicamentos.png)
 
 ### Modal que exibe informações do medicamento :
-![alt text](src/assets/modalMed.png)
+![alt text](src/assets/modalmedicamento.png)
 
 ### Pagina cadastrar um medicamento ao clicar no botão:
 
 
-![alt text](src/assets/medForm.png)
+![alt text](src/assets/form-med.png)
 
+## Projeto criado por Adriano Jose Volter
+### Link do repositório [Click aqui !](https://github.com/AdrianoVolter/pharmacy_central-system)
+
+### Meu perfil do GitHub  [ Click aqui !](https://github.com/AdrianoVolter)
 
 
