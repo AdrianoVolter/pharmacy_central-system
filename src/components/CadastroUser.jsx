@@ -105,8 +105,8 @@ const handleLimpar = (e) => {
 
 
             <h4>Cadastro de Usuário </h4> <br />
-            <form action="" >
-            <div className="row p-1">
+            <form action=""className="d-block">
+            <div className="row p-1 ">
                 <div className="col-6">
                     <label className="form-label" htmlFor="nome">Nome completo:</label>
                     <div className="input-group">
@@ -121,7 +121,7 @@ const handleLimpar = (e) => {
                 </div>
                
             </div>
-            <div className="row p-2">
+            <div className="row p-1">
                 <div className="col-4">
                     <label className="form-label" htmlFor="nome">E-mail:</label>
                     <div className="input-group">
@@ -141,7 +141,7 @@ const handleLimpar = (e) => {
                     </div>
                 </div>
             </div>
-            <div className="row p-2">
+            <div className="row p-1">
             </div>
             <div className="row p-2">
                 <div className="col-6">
@@ -159,7 +159,7 @@ const handleLimpar = (e) => {
                 </div>
 
             </div>
-            <div className="row p-2">
+            <div className="row p-3">
              <button 
                 className="btn btn-danger col-2 m-2"
                 type="submit"
@@ -167,7 +167,7 @@ const handleLimpar = (e) => {
                 
                 >
                 Cadastrar
-                <BiArchiveOut className="m-2" />
+                <BiArchiveOut className="m-2" id="cdr"/>
             </button>
             <button 
                 className="btn btn-warning col-2 m-2"
@@ -175,7 +175,7 @@ const handleLimpar = (e) => {
                 onClick={handleLimpar}
                 >
                 Limpar
-                <GrClearOption className="m-2" />
+                <GrClearOption className="m-2" id="lmp"/>
             </button>
            
           </div>

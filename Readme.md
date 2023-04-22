@@ -67,20 +67,20 @@ Inicie o servidor de desenvolvimento com o comando:
 ## Detlhes das páginas:
 
 
-![alt text](src/assets/loginInicio.png)
+![alt text](src/assets/loogin.png)
 
 ### Pagina de cadastro de usuário:
 
-![alt text](src/assets/cadastro_user.png)
+![alt text](src/assets/form-user.png)
 
 ### Pgina Lista de Farmácias :
 
-![alt text](src/assets/farmacias2.png)
+![alt text](src/assets/list-farm.png)
 
 
 ### Modal que exibe informações da farmácia :
 
-![alt text](src/assets/modalfarmacias.png)
+![alt text](src/assets/modal-farm.png)
 
 ### Pagina cadastrar uma farmácia ao clicar no botão:
 
@@ -88,10 +88,10 @@ Inicie o servidor de desenvolvimento com o comando:
 
 ### Pagina que lista os medicamentos :
 
-![alt text](src/assets/medicamentos.png)
+![alt text](src/assets/list-med.png)
 
 ### Modal que exibe informações do medicamento :
-![alt text](src/assets/modalmedicamento.png)
+![alt text](src/assets/modal-med.png)
 
 ### Pagina cadastrar um medicamento ao clicar no botão:
 
