@@ -38,10 +38,11 @@ return (
         Cadastrar medicamento
         <BiArchiveOut className=" m-2"/>
         </button>
-        <div className="row d-lg-flex">
+        <div className="container-fluid ">
+            <div className="col-12 row ">
             {listaMedicamentos.map((medicamento, index) => (
 
-                <div className="col-3">
+                <div className="col-3 ">
 
                     <div className="col-12 card p-3 m-2" key={index}>
 
@@ -96,6 +97,8 @@ return (
                 </div>
             ))}
         </div>
+        </div>
+        
         
     </div>
 )

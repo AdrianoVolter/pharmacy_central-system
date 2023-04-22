@@ -27,7 +27,7 @@ body .container{
   text-decoration: none;
   color: #c42a2a;
   font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
+  font-size: 1.4rem;
   font-weight: 400;
   /* margin-bottom: 1rem; */
   
@@ -67,7 +67,7 @@ Nav .btn:hover{
 
 #h5{
   align-self: start;
-  padding: 0.5rem;
+  padding: 0.2rem;
   margin: 0;
   font-family: 'Roboto', sans-serif;
   vertical-align: middle;
@@ -186,6 +186,4 @@ h4{
   font-weight: 700;
   color: #4a4949;
 }
-
-
 
