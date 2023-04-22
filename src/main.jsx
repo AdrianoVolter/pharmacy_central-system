@@ -7,6 +7,7 @@ import Medicamentos from './pages/Medicamentos'
 import Farmacias from './pages/Farmacias'
 import FormularioFarm from './pages/FormularioFarm'
 import FormularioMed from './pages/FormularioMed'
+import ErrorPage from './pages/ErrroPage'
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
@@ -21,6 +22,7 @@ const rotas = createBrowserRouter(
     { 
       path: '/', 
       element: <App /> ,
+      errorElement: <ErrorPage />,
       children:[
       {
         path: '/',
