@@ -49,10 +49,10 @@ return (
                         <img src="src/assets/garrafa-e-caixa-de-medicamentos-700-93492520.jpg" className="col-12 card-img-top  p-2" alt="..." />
                         <div className=" card-body p-2"> <br />
                         <div className="">
-                        <div className="row">
-                            <h6 className="card-title  col-6 ">{medicamento.nome}</h6>
-                            <p className="card-text col-6"><strong>{medicamento.dosagem}</strong> mg</p>
-                        </div> <br />
+                       
+                            <h6 className="card-title  col-12 ">{medicamento.nome}</h6>
+                            <p className="card-text col-12"><strong>{medicamento.dosagem}</strong> mg</p>
+                        
                         </div>
                             <Button className='' variant="warning" onClick={() => abrirModal(index)
 
