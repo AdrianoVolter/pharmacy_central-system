@@ -1,9 +1,11 @@
 //navbar 
 import { Link } from "react-router-dom";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, NavbarBrand } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {BiLogIn , BiInjection,BiStore} from 'react-icons/bi'
+import NavbarToggle from "react-bootstrap/esm/NavbarToggle";
+import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
 
 function Header() {
 
@@ -22,8 +24,8 @@ function Header() {
 
 
   return (
-    <div className="row d-flex">
-      <Navbar bg="warning" variant="dark" className="p-1">
+    
+      <Navbar bg="warning" variant="dark" className="p-1 ">
         <img 
             src="src/assets/favicon.ico" 
             id="img"
@@ -34,14 +36,18 @@ function Header() {
             />
         <Navbar.Brand href="#home">
           
-          <h5 id="h5" >Phamacy Central System</h5></Navbar.Brand>
-        <Nav className="my-2 my-sm-0">
-          <Link 
+          <h5 id="h5" >Pharmacy Central System</h5>
+          </Navbar.Brand>
+      
+          <Nav className="me-auto my-2 my-sm-0 d-block">
             
-            className="btn p-3" 
+            
+          <Link 
+
+            className="nav-item btn p-1" 
             to="/"
             > <BiLogIn 
-              className="link"
+              className=" link"
               />{" "}
               Login
             
@@ -49,18 +55,18 @@ function Header() {
           {
             disabled ? null :
           <Link 
-            className="btn p-3" 
+            className="nav-item btn p-1" 
             to="/farmacias"
             disabled={true}
             >
-              <BiStore className="link"/>{" "}
+              <BiStore className="nav-item link"/>{" "}
               Farmácias
             </Link>
           }
           {
             disabled ? null :
           <Link 
-            className="btn p-3" 
+            className="nav-item btn p-1" 
             to="/medicamentos"
             disabled={false}
             >
@@ -68,9 +74,10 @@ function Header() {
               Medicamentos
             </Link>
           }
+          
         </Nav>
       </Navbar>
-    </div>
+   
   );
 }
 
