@@ -57,6 +57,7 @@ Inicie o servidor de desenvolvimento com o comando:
     <li>React-Bootstrap</li>
     <li>React-Icons</li>
     <li>React-Router-DOM</li>
+    <li>React-Input-Mask</li>
 </ul>
 
 ## Versionamento 
