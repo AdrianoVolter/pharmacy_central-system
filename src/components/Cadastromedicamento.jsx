@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState ,useEffect } from 'react';
 import { MedContext } from '../contexts/MedContext';
 import { useContext } from 'react';
+//import InputMask from 'react-input-mask';
 
 import { BiArchiveOut} from 'react-icons/bi'
 import {GrClearOption} from 'react-icons/gr'
@@ -45,7 +46,31 @@ function CadastroMedicamento () {
     setPrecoMedicamento('');
     setTipoMedicamento('');
   }
-  
+
+  //mascara de preço
+  const precoMask =(e)=>{
+    let valor = e.target.value;
+    valor = valor.replace(/\D/g,"");
+    valor = valor.replace(/(\d)(\d{2})$/,"$1,$2");
+    valor = valor.replace(/(?=(\d{3})+(\D))\B/g,".");
+    e.target.value = valor;
+    setPrecoMedicamento(valor);
+    return valor;
+    }
+
+    const doseMask = (e) => {
+        let valor = e.target.value;
+        valor = valor.replace(/\D/g, "");
+        valor = valor.replace(/(\d)(\d{3})$/, "$1.$2");
+        if (valor >= 1000) {
+          valor = valor.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+        }
+        e.target.value = valor;
+        setDosagemMedicamento(valor);
+        return valor;
+      };
+      
+ 
     return(
         
         <div className="row col-10 p-3 m-2 ">
@@ -64,11 +89,29 @@ function CadastroMedicamento () {
             <div className="row">
                     <div className="col-4">
                         <label className='form-label'>Dosagem do medicamento mg</label>  <br/>
-                        <input onChange={(e)=>setDosagemMedicamento(e.target.value)} className="form-control" value={dosagemMedicamento} type="number" name="dosagemMedicamento" id="dosagemMedicamento" placeholder="Digite a dosagem do medicamento" required/> <br/>
+                        <input
+                           onKeyUp={(e)=>doseMask(e)}
+                            onChange={(e)=>setDosagemMedicamento(e.target.value)} 
+                            className="form-control" 
+                            value={dosagemMedicamento} 
+                            type="text" 
+                            name="dosagemMedicamento" 
+                            id="dosagemMedicamento"
+                            placeholder="Digite a dosagem do medicamento" 
+                            required/> <br/>
                     </div>
                     <div className="col-4">
                     <label className='form-label'>Preço unitário do medicamento R$</label>  <br/>
-                    <input onChange={(e)=>setPrecoMedicamento(e.target.value)} className="form-control" value={precoMedicamento} type="number" name="precoMedicamento" id="precoMedicamento" placeholder="Digite o preço unitário do medicamento" required/> <br/>
+                    <input
+                        onKeyUp={(e)=>precoMask(e)}
+                        value={precoMedicamento}  
+                        onChange={(e)=>setPrecoMedicamento(e.target.value)} 
+                        className="form-control" 
+                        name="precoMedicamento" 
+                        id="precoMedicamento" 
+                        type="text"
+                        placeholder="Digite o preço unitário do medicamento" 
+                        required/> <br/>
                     </div>
             
                     <div className="col-4">               

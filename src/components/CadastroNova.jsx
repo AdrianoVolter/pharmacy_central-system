@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FarmContext } from '../contexts/FarmContext';
 import { useContext } from 'react';
-import { FarmProvider } from '../contexts/FarmContext';
+//import { FarmProvider } from '../contexts/FarmContext';
+import InputMask from 'react-input-mask';
 
 import { BiArchiveOut} from 'react-icons/bi'
 import {GrClearOption} from 'react-icons/gr'
@@ -107,7 +108,16 @@ const LimparFormulario = (e) => {
                 <div className="col-4">
                     <label className="form-label" htmlFor="nome">CNPJ:</label>
                     <div className="input-group">
-                        <input type="text" onChange={(e) =>setCnpj(e.target.value) } className="form-control" value={cnpj} name="cnpj" id="cnpj" placeholder="Digite o CNPJ" required />
+                        <InputMask
+                            mask="99.999.999/9999-99" 
+                            type="text" 
+                            onChange={(e) =>setCnpj(e.target.value) } 
+                            className="form-control" 
+                            value={cnpj} 
+                            name="cnpj" 
+                            id="cnpj" 
+                            placeholder="Digite o CNPJ" 
+                            required />
                     </div>
                 </div>
                 <div className="col-4">
@@ -121,19 +131,46 @@ const LimparFormulario = (e) => {
                 <div className="col-4">
                     <label className="form-label" htmlFor="nome">E-mail:</label>
                     <div className="input-group">
-                        <input type="email" onChange={(e) =>setEmail(e.target.value) } className="form-control" value={email} name="email" id="email" placeholder="Digite o E-mail" required />
+                        <InputMask 
+                            
+                            type="email" 
+                            onChange={(e) =>setEmail(e.target.value) } 
+                            className="form-control" 
+                            value={email} 
+                            name="email" 
+                            id="email" 
+                            placeholder="Digite o E-mail" 
+                            required />
                     </div>
                 </div>
                 <div className="col-4">
                     <label className="form-label" htmlFor="nome">Telefone:</label>
                     <div className="input-group">
-                        <input type="text" onChange={(e) =>setTelefone(e.target.value) } className="form-control" value={telefone} name="telefone" id="telefone" placeholder="Digite o Telefone" required />
+                        <InputMask 
+                            mask="(99) 9999-9999"
+                            type="text" 
+                            onChange={(e) =>setTelefone(e.target.value) } 
+                            className="form-control" 
+                            value={telefone} 
+                            name="telefone" 
+                            id="telefone" 
+                            placeholder="Digite o Telefone" 
+                            required />
                     </div>
                 </div>
                 <div className="col-4">
                     <label className="form-label" htmlFor="nome">Celular:</label>
                     <div className="input-group">
-                        <input type="text" onChange={(e) =>setCelular(e.target.value) } className="form-control" value={celular} name="celular" id="celular" placeholder="Digite o Celular" required />
+                        <InputMask 
+                            mask="(99) 99999-9999"
+                            type="text" 
+                            onChange={(e) =>setCelular(e.target.value) } 
+                            className="form-control" 
+                            value={celular} 
+                            name="celular" 
+                            id="celular" 
+                            placeholder="Digite o Celular" 
+                            required />
                     </div>
                 </div>
             </div>
@@ -145,7 +182,8 @@ const LimparFormulario = (e) => {
             <div className="col-3">
                   <label className="form-label" htmlFor="cep">CEP:</label>
                   <div className="input-group">
-                      <input 
+                      <InputMask
+                        mask="99999-999" 
                         type="text" 
                         onBlur={(e)=> onBlur
                         (e)}

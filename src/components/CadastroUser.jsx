@@ -3,6 +3,8 @@ import { BiArchiveOut } from "react-icons/bi";
 import { GrClearOption } from "react-icons/gr";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
+import InputMask from 'react-input-mask';
+
 
 function CadastroUser(){
 
@@ -116,7 +118,15 @@ const handleLimpar = (e) => {
                 <div className="col-6">
                     <label className="form-label" htmlFor="nome">CPF:</label>
                     <div className="input-group">
-                        <input type="text" className="form-control" onChange={handleCpf} name={cpf} id="cnpj" placeholder="Digite seu CPF" required />
+                        <InputMask
+                            mask="999.999.999-99"
+                            type="text" 
+                            className="form-control" 
+                            onChange={handleCpf} 
+                            name={cpf} 
+                            id="cnpj" 
+                            placeholder="Digite seu CPF" 
+                            required />
                     </div>
                 </div>
                
@@ -131,13 +141,28 @@ const handleLimpar = (e) => {
                 <div className="col-4">
                     <label className="form-label" htmlFor="nome">Telefone:</label>
                     <div className="input-group">
-                        <input type="text" className="form-control" onChange={handleTelefone} name={telefone} id="telefone" placeholder="Digite o Telefone" />
+                        <InputMask 
+                            mask="(99) 9999-9999"
+                            type="text" 
+                            className="form-control" 
+                            onChange={handleTelefone} 
+                            name={telefone} 
+                            id="telefone" 
+                            placeholder="Digite o Telefone" />
                     </div>
                 </div>
                 <div className="col-4">
                     <label className="form-label" htmlFor="nome">Celular:</label>
                     <div className="input-group">
-                        <input type="text"  className="form-control" onChange={handleCelular}  name={celular} id="celular" placeholder="Digite o Celular" required />
+                        <InputMask 
+                            mask="(99) 99999-9999"
+                            type="text"  
+                            className="form-control" 
+                            onChange={handleCelular}  
+                            name={celular} 
+                            d="celular" 
+                            placeholder="Digite o Celular" 
+                            required />
                     </div>
                 </div>
             </div>

@@ -3,12 +3,12 @@ import { Modal, Button } from "react-bootstrap"
 import { useState } from "react"
 import { FarmContext } from "../contexts/FarmContext"
 import { useContext } from "react"
-//import { FarmProvider } from "../contexts/FarmContext"
 
 import { BiArchiveOut, BiCommentDetail} from 'react-icons/bi'
 import {BsTelephoneInbound, BsXCircleFill} from 'react-icons/bs'
 import {MdAlternateEmail} from 'react-icons/md'
 import {BsWhatsapp} from 'react-icons/bs'
+
 
 function ListaDeFarmacias() {
 
@@ -30,6 +30,11 @@ function ListaDeFarmacias() {
     function handleCdFarm() {
         navigate('/formulario')
     }
+
+    const celular = listaFarmacias[modal]?.celular;
+    const celularSemMascara = celular ? celular.replace(/\D/g, "") : "";
+    const linkWhatsApp = `https://api.whatsapp.com/send?phone=55${celularSemMascara}&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20seu%20produto%20%3A`;
+
 
     return (
 
@@ -83,11 +88,24 @@ function ListaDeFarmacias() {
                         </div>
                             <h5>Contato</h5>
                             <div className="row">
-                                <div className="col-6">
-                                    <p><strong><BsTelephoneInbound/>{" "}Telefone :</strong> {listaFarmacias[modal]?.telefone}</p>
+                                <div className="col-12">
+                                    <p ><strong><BsTelephoneInbound/>
+                                        {" "}Telefone : </strong>{listaFarmacias[modal]?.telefone}
+                                    </p>
                                 </div>
-                                 <div className="col-6">
+                                 <div className="col-12">
                                      <p><strong><BsWhatsapp/>{" "}Celular:</strong> {listaFarmacias[modal]?.celular}</p>
+                                 </div>
+                                 <div className="col-12">
+                                     <p ><strong><BsWhatsapp/>{" "}Wattsapp:</strong> <a 
+                                        href={linkWhatsApp}
+                                        target="_blank" 
+                                        rel="noreferrer"
+                                        className="text-danger"
+                                        title="Clique para enviar uma mensagem"
+                                        >
+                                            {listaFarmacias[modal]?.celular}
+                                        </a> </p>
                                  </div>
                                
                             </div>
@@ -95,22 +113,26 @@ function ListaDeFarmacias() {
                             <p><strong><MdAlternateEmail/>{" "}E-mail:</strong> {listaFarmacias[modal]?.email}</p>
                         
                             <h5>Endereço</h5>
-                            <div className="row">
-                                <div className="col-6">
+                            <div className="col-12">
                                      <p><strong>Logradouro:</strong> {listaFarmacias[modal]?.logradouro}</p>
                                 </div>
+                            <div className="row">
+                                
                                 <div className="col-6">
                                      <p><strong>Numero:</strong> {listaFarmacias[modal]?.numero}</p>
                                 </div>
                                 
-                           
-                            </div>
-                            <div className="row">
-                                <div className="col-6">
+                             <div className="col-6">
                                     <p><strong>Bairro:</strong> {listaFarmacias[modal]?.bairro}</p>
                                 </div>
+                            </div>
+                            <div className="row">
+                              
                                 <div className="col-6">
                                     <p><strong>Complemento:</strong> {listaFarmacias[modal]?.complemento}</p>
+                                </div>
+                                 <div className="col-4">
+                                     <p><strong>Cep:</strong> {listaFarmacias[modal]?.cep}</p>
                                 </div>
                             </div>
                             
@@ -122,9 +144,7 @@ function ListaDeFarmacias() {
                                 <div className="col-4">
                                      <p><strong>Estado:</strong> {listaFarmacias[modal]?.estado}</p>
                                 </div>
-                                <div className="col-4">
-                                     <p><strong>Cep:</strong> {listaFarmacias[modal]?.cep}</p>
-                                </div>
+                               
                             </div>
                           
                            
