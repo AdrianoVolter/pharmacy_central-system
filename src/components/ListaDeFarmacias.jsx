@@ -102,6 +102,7 @@ function ListaDeFarmacias() {
                                         target="_blank" 
                                         rel="noreferrer"
                                         className="text-danger"
+                                        title="Clique para enviar uma mensagem"
                                         >
                                             {listaFarmacias[modal]?.celular}
                                         </a> </p>
