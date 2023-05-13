@@ -66,7 +66,7 @@ Inicie o servidor de desenvolvimento com o comando:
 <li>Git Flow</li>
 </ul>
 
-## Detlhes das páginas:
+## Detalhes das páginas:
 
 
 ![alt text](src/assets/loogin.png)

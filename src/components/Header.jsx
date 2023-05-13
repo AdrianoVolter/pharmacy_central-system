@@ -4,8 +4,9 @@ import { Navbar, Nav, NavbarBrand } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {BiLogIn , BiInjection,BiStore} from 'react-icons/bi'
-import NavbarToggle from "react-bootstrap/esm/NavbarToggle";
-import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
+//import NavbarToggle from "react-bootstrap/esm/NavbarToggle";
+//import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
+
 
 function Header() {
 
@@ -27,7 +28,7 @@ function Header() {
     
       <Navbar bg="warning" variant="dark" className="p-1 ">
         <img 
-            src="src/assets/favicon.ico" 
+            src="src/img/favicon.ico" 
             id="img"
             alt="logo" 
             className="p-3" 
