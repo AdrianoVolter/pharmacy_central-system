@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
 import { MedContext } from '../contexts/MedContext';
 import { useContext } from 'react';
+import imgMedicamento from '../img/garrafa-e-caixa-de-medicamentos-700-93492520.jpg'
 
 import { BiArchiveOut, BiCommentDetail} from 'react-icons/bi'
 import {BsX} from 'react-icons/bs'
@@ -46,7 +47,7 @@ return (
 
                     <div className="col-12 card p-3 m-2" key={index}>
 
-                        <img src="src/img/garrafa-e-caixa-de-medicamentos-700-93492520.jpg" className="col-12 card-img-top  p-2" alt="..." />
+                        <img src={imgMedicamento} className="col-12 card-img-top  p-2" alt="..." />
                         <div className=" card-body p-2"> <br />
                         <div className="">
                        

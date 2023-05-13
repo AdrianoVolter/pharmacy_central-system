@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import {BiLogIn , BiInjection,BiStore} from 'react-icons/bi'
 //import NavbarToggle from "react-bootstrap/esm/NavbarToggle";
 //import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
+import logo from '../img/favicon.ico'
 
 
 function Header() {
@@ -28,7 +29,7 @@ function Header() {
     
       <Navbar bg="warning" variant="dark" className="p-1 ">
         <img 
-            src="src/img/favicon.ico" 
+            src={logo} 
             id="img"
             alt="logo" 
             className="p-3" 
