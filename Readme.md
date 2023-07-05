@@ -1,6 +1,6 @@
 ****
 
-## Projeto modulo 1 Curso FullStack -Senai/LAB365-
+## Projeto Avaliativo | Modulo 1 Curso FullStack | Senai/LAB365 |
 
 ***
 # Pharmacy Central System
