@@ -1,21 +1,15 @@
-# Escolha uma imagem base. Neste caso, será a imagem oficial do Node.js
-FROM node:14
-
-# Defina o diretório de trabalho no contêiner
+# build environment
+FROM node:14 as build
 WORKDIR /app
-
-# Copie o arquivo package.json e package-lock.json (se disponível)
-COPY package*.json ./
-
-# Instale as dependências do projeto
+COPY package.json ./
+COPY package-lock.json ./
 RUN npm install
+COPY . ./
+RUN npm run build
 
-# Copie os arquivos do projeto para o diretório de trabalho no contêiner
-COPY . .
+# production environment
+FROM nginx:stable-alpine
+COPY --from=build /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
 
-# Exponha a porta que o app vai rodar
-EXPOSE 5173
-
-
-# Comando para iniciar o app
-CMD ["npm", "run", "dev"]
