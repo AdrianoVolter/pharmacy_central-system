@@ -1,0 +1,16 @@
+name: Build do Projeto Pharmacy Central System
+
+on: [push]  # Disparar o fluxo de trabalho quando houver push para o repositório
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # O ambiente em que o fluxo de trabalho será executado
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v2
+
+    - name: Construir a imagem Docker e implantar no NGINX
+      run: |
+        docker build -t front-pharmacy .
+        docker run -d -p 80:80 front-pharmacy
