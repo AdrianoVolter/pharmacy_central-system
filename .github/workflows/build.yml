@@ -1,4 +1,4 @@
-name: CI/CD Pipeline Portifolio
+name: CI/CD Pipeline Pharmacy Central System
 
 on:
   push:
