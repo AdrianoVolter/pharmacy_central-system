@@ -3,7 +3,6 @@ services:
   app:
     image: front-pharmacy
     ports:
-      - 8080:8080
+      - 8080:80
     volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
+      - .:/app
