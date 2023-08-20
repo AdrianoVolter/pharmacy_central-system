@@ -6,5 +6,5 @@ COPY package.json ./
 COPY package-lock.json ./
 RUN npm install -g vite   
 RUN npm install  
-EXPOSE 80
+EXPOSE 8080
 CMD ["npm", "run", "dev"]
