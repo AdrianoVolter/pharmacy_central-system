@@ -1,0 +1,10 @@
+# Dockerfile.dev
+FROM node:18
+RUN apt-get update && apt-get install -y nodejs npm
+WORKDIR /app
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm install -g vite   
+RUN npm install  
+EXPOSE 8080
+CMD ["npm", "run", "dev"]
