@@ -84,7 +84,7 @@ const handleEnviar = (e) => {
                              
                                 <Link className='col-5 btn btn-danger m-2' to="/cadastro"> 
                                 
-                                Faça seu cadastro :<BiArchiveOut />
+                                Faça seu cadastro <BiArchiveOut />
                                 
                                 </Link>
                                  
