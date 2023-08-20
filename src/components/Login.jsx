@@ -45,7 +45,7 @@ const handleEnviar = (e) => {
                 <div className=" col-12 ">
                     <div className="">
                         <div className="">
-                            <h4>LoGIN</h4>
+                            <h4>Login</h4>
                         </div><br />
                         <div className="card-body">
                             <form 
@@ -84,7 +84,7 @@ const handleEnviar = (e) => {
                              
                                 <Link className='col-5 btn btn-danger m-2' to="/cadastro"> 
                                 
-                                Faça seu cadastro <BiArchiveOut />
+                                Faça seu cadastro :<BiArchiveOut />
                                 
                                 </Link>
                                  

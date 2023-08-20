@@ -1,10 +1,10 @@
+version: '3'
 services:
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     ports:
       - 8080:80
     volumes:
       - .:/app
-      - myvolume:/path/to/mount
-volumes:
-  myvolume:
