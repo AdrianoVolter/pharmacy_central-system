@@ -1,8 +1,13 @@
 # Dockerfile.dev
 FROM node:14
+
+# Instala o Node.js e o npm
+RUN apt-get update && apt-get install -y npm
+
 WORKDIR /app
 COPY package.json ./
 COPY package-lock.json ./
 RUN npm install
+
 EXPOSE 8080
 CMD ["npm", "run", "dev"]
