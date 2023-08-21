@@ -13,8 +13,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          token: ${{ secrets.MY_PERSONAL_TOKEN }}
-
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Check if main branch was updated
+        run: |
+          if [[ ${{ github.ref }} == 'refs/heads/main' ]]; then
+            echo "Main branch updated. Proceeding with the build and deploy steps."
+          else
+            echo "Main branch not updated. Skipping build and deploy steps."
+            exit 0
+          fi
+      
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
@@ -28,15 +37,3 @@ jobs:
           docker build -t adrianovolter/front-pharmacy .
           docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
           docker push adrianovolter/front-pharmacy:latest
-
-      - name: Create Pull Request
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git checkout -b update-branch
-          git commit --allow-empty -m "Automated commit for pull request"
-          git push origin update-branch
-          hub pull-request -b main -h update-branch -m "Update Docker image"
-        env:
-          GITHUB_TOKEN: ${{ secrets.MY_PERSONAL_TOKEN }}
