@@ -1,16 +1,11 @@
-import CadastroNova from "../components/CadastroNova"
+import CadastroNova from "../components/CadastroNova";
 
-function FormularioFarm () {
-
-
-
-    return (
-        <div className="container p-3">
-            
-                <CadastroNova />
-            
-        </div>
-    )
+function FormularioFarm() {
+  return (
+    <div className="container p-3">
+      <CadastroNova />
+    </div>
+  );
 }
 
-export default FormularioFarm
+export default FormularioFarm;

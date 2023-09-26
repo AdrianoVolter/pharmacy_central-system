@@ -1,10 +1,9 @@
-import { Outlet } from "react-router-dom"
-import Header from "./components/Header"
-import { MedProvider } from "./contexts/MedContext"
-import { FarmProvider } from "./contexts/FarmContext"
+import { Outlet } from "react-router-dom";
+import Header from "./components/Header";
+import { MedProvider } from "./contexts/MedContext";
+import { FarmProvider } from "./contexts/FarmContext";
 
 function App() {
-
   return (
     <div className="App">
       <FarmProvider>
@@ -14,9 +13,7 @@ function App() {
         </MedProvider>
       </FarmProvider>
     </div>
-    
-   
-  )
+  );
 }
 
-export default App
+export default App;

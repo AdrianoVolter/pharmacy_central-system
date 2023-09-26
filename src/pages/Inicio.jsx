@@ -1,14 +1,11 @@
-//import Header from '../components/Header';
-
-import Login from '../components/Login';
+import Login from "../components/Login";
 
 function Inicio() {
   return (
     <div className="container p-3">
-        <Login />
+      <Login />
     </div>
   );
 }
-
 
 export default Inicio;

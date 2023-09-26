@@ -1,16 +1,11 @@
-import Cadastromedicamento from '../components/Cadastromedicamento'
-
+import Cadastromedicamento from "../components/Cadastromedicamento";
 
 function FormularioMed() {
-
-
-   return (
-
+  return (
     <div className="container p-3">
-        <Cadastromedicamento/>
-        
+      <Cadastromedicamento />
     </div>
-    )
+  );
 }
 
-export default FormularioMed
+export default FormularioMed;

@@ -1,15 +1,11 @@
-
-//Page de cadastro de usuario
-
 import CadastroUser from "../components/CadastroUser";
 
 function FormUsuario() {
-    return (
-        <div className="container p-3">
-            <CadastroUser />
-        </div>
-    );
-    }
+  return (
+    <div className="container p-3">
+      <CadastroUser />
+    </div>
+  );
+}
 
 export default FormUsuario;
-

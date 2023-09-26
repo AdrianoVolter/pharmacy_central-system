@@ -1,4 +1,3 @@
-
 import { createContext } from "react";
 import { useState, useEffect } from "react";
 
@@ -26,36 +25,3 @@ const FarmProvider = ({ children }) => {
 };
 
 export { FarmContext, FarmProvider };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //const [listaFarmacias, setListaFarmacias] = useState([]);
-
-    //     const addFarmacia = (farmacia) => {
-    //         setListaFarmacias([...listaFarmacias, farmacia]);
-    //     }
-    
-    //     return (
-    //         <FarmContext.Provider value={{ listaFarmacias, addFarmacia }}>
-    //             {children}
-    //         </FarmContext.Provider>
-    //     )
-    // }
-    
-    // export { FarmContext, FarmProvider };
