@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { BiLogIn } from "react-icons/bi";
 import { BiArchiveOut } from "react-icons/bi";
+import api from "../api/api";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -17,18 +18,29 @@ function Login() {
     setSenha(e.target.value);
   };
 
-  const handleEnviar = (e) => {
+  const handleEnviar = async (e)  => {
     if (email === "" || senha.length < 8) {
       alert("Preencha todos os campos CORRETAMENTE!");
       return;
     } else {
       e.preventDefault();
-      alert("Login realizado com sucesso!");
-      setDados([...dados, { email, senha }]);
-      console.log(dados);
-      navegar("/farmacias");
+     await api
+        .post("/usuarios/login", {
+          email: email,
+          senha: senha,
+        })
+        .then((response) => {
+          setDados(response.data);
+          localStorage.setItem("token", response.data.token);
+          localStorage.setItem("id", response.data.id);
+          alert("Logado com sucesso!");
+          navegar("/farmacias");
+        })
+        .catch((err) => {
+          alert("Erro ao logar!");
+        });
     }
-  };
+  }
 
   return (
     <div className=" col-12 container p-3">
