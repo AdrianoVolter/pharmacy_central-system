@@ -10,14 +10,6 @@ function Login() {
   const [dados, setDados] = useState([]);
   const navegar = useNavigate();
 
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handleSenha = (e) => {
-    setSenha(e.target.value);
-  };
-
   const handleEnviar = async (e)  => {
     if (email === "" || senha.length < 8) {
       alert("Preencha todos os campos CORRETAMENTE!");
@@ -25,7 +17,7 @@ function Login() {
     } else {
       e.preventDefault();
      await api
-        .post("/usuarios/login", {
+        .post("/api/usuarios/login", {
           email: email,
           senha: senha,
         })
@@ -59,7 +51,7 @@ function Login() {
                     type="email"
                     className="form-control"
                     placeholder="Digite seu e-mail"
-                    onChange={handleEmail}
+                    onChange={e => setEmail(e.target.value)}
                     required
                   />
                 </div>{" "}
@@ -70,7 +62,7 @@ function Login() {
                     type="password"
                     className="form-control"
                     placeholder="Digite a senha"
-                    onChange={handleSenha}
+                    onChange={e => setSenha(e.target.value)}
                     minLength={8}
                     required
                   />
